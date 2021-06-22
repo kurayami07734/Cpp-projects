@@ -1,5 +1,5 @@
-#ifndef LIST_H
-#define LIST_H
+#ifndef LIST_HPP
+#define LIST_HPP
 #include <iostream>
 #include <exception>
 struct node 
@@ -55,4 +55,4 @@ public:
     }
 };
 
-#endif // LIST_H
+#endif // LIST_HPP
