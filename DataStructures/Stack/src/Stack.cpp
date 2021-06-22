@@ -1,16 +1,16 @@
 #include "Stack.hpp"
 Stack::Stack::Stack()
-:top(nullptr), length(0)
+    : top(nullptr), length(0)
 {
 }
 
 Stack::Stack::Stack(const std::string &s)
 {
     length = s.size();
-    for(size_t i = 0; i < length; i++)
+    for (size_t i = 0; i < length; i++)
     {
         StackNode *ptr = new StackNode(s.at(i));
-        if(top == nullptr)
+        if (top == nullptr)
             top = ptr;
         else
         {
@@ -43,7 +43,7 @@ void Stack::Stack::empty()
 
 char Stack::Stack::pop()
 {
-    if(top == nullptr)
+    if (top == nullptr)
         return -1;
     char value = top->data;
     top = top->next;
@@ -54,8 +54,8 @@ char Stack::Stack::pop()
 void Stack::Stack::push(char c)
 {
     StackNode *ptr = new StackNode(c);
-    if(top == nullptr)
-    {    
+    if (top == nullptr)
+    {
         top = ptr;
         ptr->next = nullptr;
         length++;
@@ -68,12 +68,12 @@ void Stack::Stack::push(char c)
     }
 }
 
-std::ostream& Stack::operator << (std::ostream &out, const Stack &s)
+std::ostream &Stack::operator<<(std::ostream &out, const Stack &s)
 {
     StackNode *ptr = s.top;
-    if(ptr == nullptr)
+    if (ptr == nullptr)
         out << "Stack is empty\n";
-    while(ptr != nullptr)
+    while (ptr != nullptr)
     {
         out << "|" << ptr->data << "|\n";
         ptr = ptr->next;
@@ -86,4 +86,3 @@ Stack::Stack::~Stack()
 {
     delete top;
 }
-

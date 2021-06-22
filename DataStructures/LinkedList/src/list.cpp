@@ -1,25 +1,25 @@
-#include "list.h"
+#include "../include/list.h"
 #include <iostream>
-void swap(int &a,int &b)
+void swap(int &a, int &b)
 {
     int temp = a;
     a = b;
     b = temp;
 }
 
-list::list(int a[],size_t size) 
+list::list(int a[], size_t size)
 {
     length = size;
-    for(size_t i = 0; i < size ; i++) 
+    for (size_t i = 0; i < size; i++)
     {
-        node* ptr = new node;
+        node *ptr = new node;
         ptr->data = a[size - 1 - i];
-        if(head == nullptr) 
+        if (head == nullptr)
         {
             head = tail = ptr;
             ptr->next = nullptr;
         }
-        else 
+        else
         {
             ptr->next = head;
             head = ptr;
@@ -33,21 +33,21 @@ list::list(const list &l)
     tail = l.tail;
 }
 
-void list::insert_node(node* ptr,size_t pos)
+void list::insert_node(node *ptr, size_t pos)
 {
-    if(pos >= 0 && pos <= length) 
+    if (pos >= 0 && pos <= length)
     {
         length++;
-        if(pos == 1)
+        if (pos == 1)
         {
             ptr->next = head;
             head = ptr;
         }
-        else 
+        else
         {
-            node *pre,*cur;
+            node *pre, *cur;
             cur = head;
-            for(size_t i = 0; i < pos; i++)
+            for (size_t i = 0; i < pos; i++)
             {
                 pre = cur;
                 cur++;
@@ -64,18 +64,18 @@ void list::insert_node(node* ptr,size_t pos)
 
 void list::delete_node(size_t pos)
 {
-    if(pos >= 0 && pos <= length) 
+    if (pos >= 0 && pos <= length)
     {
         length--;
-        if(pos == 1)
+        if (pos == 1)
         {
             head = head->next;
         }
-        else 
+        else
         {
-            node *pre,*cur;
+            node *pre, *cur;
             cur = head;
-            for(size_t i = 0; i < pos; i++)
+            for (size_t i = 0; i < pos; i++)
             {
                 pre = cur;
                 cur = cur->next;
@@ -87,33 +87,32 @@ void list::delete_node(size_t pos)
     }
     else
         throw list_error("Out of bounds");
-    
 }
 
 void list::sort() //selection sort
 {
     node *i{this->head}, *j{nullptr}, *min{nullptr};
-    while(i != nullptr)
+    while (i != nullptr)
     {
         j = i->next;
         min = i;
-        while(j != nullptr)
+        while (j != nullptr)
         {
-            if(min->data > j->data)
+            if (min->data > j->data)
                 min = j;
             j = j->next;
         }
-        swap_node(i, min);
+        swap(i->data, min->data);
         i = i->next;
     }
-//    delete i;
-//    delete j;
-//    delete min;
+    //    delete i;
+    //    delete j;
+    //    delete min;
 }
-
-void list::swap_node(node *first, node *second) 
+// ! This function is not implemented completely yet
+void list::swap_node(node *first, node *second)
 {
-    if(first == head && second == tail)
+    if (first == head && second == tail)
     {
         node *temp = head;
         head = tail;
@@ -121,12 +120,12 @@ void list::swap_node(node *first, node *second)
         tail = temp;
         tail->next = temp->next;
     }
-    else if(first == head and second != tail)
+    else if (first == head and second != tail)
     {
         node *prev_second = head;
-        while(prev_second->next != second)
+        while (prev_second->next != second)
             prev_second = prev_second->next;
-            
+
         prev_second->next = first;
         node *temp = first->next;
         first->next = second->next;
@@ -135,98 +134,96 @@ void list::swap_node(node *first, node *second)
         temp = nullptr;
         prev_second = nullptr;
     }
-    else if(first != head and second == tail)
+    else if (first != head and second == tail)
     {
         node *prev_first{head}, *prev_second{head};
-        
-        while(prev_first->next == first)
+
+        while (prev_first->next == first)
             prev_first = prev_first->next;
-            
-        while(prev_second->next == second)
+
+        while (prev_second->next == second)
             prev_second = prev_second->next;
-        
+
         prev_first->next = second;
         second->next = first->next;
         first->next = nullptr;
         prev_second->next = first;
         tail = first;
-        
+
         prev_first = nullptr;
         prev_second = nullptr;
     }
     else
     {
         node *prev_first{head}, *prev_second{head};
-        
-        while(prev_first->next != first)
+
+        while (prev_first->next != first)
             prev_first = prev_first->next;
-            
-        while(prev_second->next != second)
+
+        while (prev_second->next != second)
             prev_second = prev_second->next;
-            
+
         prev_first->next = second;
         prev_second->next = first;
         node *temp = first->next;
         first->next = second->next;
         second->next = temp;
-        
+
         prev_first = nullptr;
         prev_second = nullptr;
         temp = nullptr;
     }
-    
 }
 
-void list::reverse() 
+void list::reverse()
 {
     //iterative approach
-    // if you have head and tail pointers just swap them 
+    // if you have head and tail pointers just swap them
     // that'll also reverse the linked list
     node *pre{nullptr}, *cur{head}, *next{nullptr};
     tail = head;
-    while(cur != nullptr)
+    while (cur != nullptr)
     {
         next = cur->next;
         cur->next = pre;
         pre = cur;
-        cur = next;        
+        cur = next;
     }
     head = pre;
-//    std::cout << head;
-//    delete pre;
-//    delete cur;
-//    delete next;
+    //    std::cout << head;
+    //    delete pre;
+    //    delete cur;
+    //    delete next;
 }
 
 size_t list::size()
 {
-    return this->length;    
+    return this->length;
 }
 
-int list::operator [](size_t index)
+int list::operator[](size_t index)
 {
-    if(index >= 0 && index <= length) 
+    if (index >= 0 && index <= length)
     {
         node *ptr = head;
-        for(size_t i = 0; i < index; i++)
-            ptr = ptr->next;               
+        for (size_t i = 0; i < index; i++)
+            ptr = ptr->next;
         return ptr->data;
     }
     else
         throw list_error("Out of bounds");
 }
 
-
-std::ostream& operator << (std::ostream &out,const list &l)
+std::ostream &operator<<(std::ostream &out, const list &l)
 {
     node *ptr = l.head;
-    while(ptr != nullptr)
+    while (ptr != nullptr)
     {
-        if(ptr->next == nullptr)
+        if (ptr->next == nullptr)
             out << ptr->data;
         else
-            out << ptr->data <<" --> ";
-        
+            out << ptr->data << " --> ";
+
         ptr = ptr->next;
     }
     out << std::endl;
@@ -238,4 +235,3 @@ list::~list()
     delete head;
     delete tail;
 }
-

@@ -11,10 +11,9 @@ namespace Stack
         {
             data = value;
             next = ptr;
-        }        
+        }
     };
-    
-    
+
     class Stack
     {
     public:
@@ -26,8 +25,9 @@ namespace Stack
         void empty();
         char at_top();
         size_t size() const;
-        friend std::ostream& operator << (std::ostream &out, const Stack &s);
+        friend std::ostream &operator<<(std::ostream &out, const Stack &s);
         ~Stack();
+
     private:
         size_t length{0};
         StackNode *top{nullptr};
