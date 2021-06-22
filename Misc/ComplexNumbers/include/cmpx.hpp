@@ -1,5 +1,5 @@
-#ifndef CMPX_H
-#define CMPX_H
+#ifndef CMPX_HPP
+#define CMPX_HPP
 #include <iostream>
 //Author : Aditya Ghidora
 //Class to model complex numbers
@@ -32,7 +32,7 @@ public:
 	friend std::ostream& operator << (std::ostream&,const cmpx&);
 	friend std::istream& operator >> (std::istream&,cmpx&);
     
-    virtual ~cmpx();
+    virtual ~cmpx() = default;
 };
 
 class math_error : public std::exception
@@ -51,4 +51,4 @@ public:
     }
 };
 
-#endif // CMPX_H
+#endif // CMPX_HPP

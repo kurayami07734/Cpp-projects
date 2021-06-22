@@ -1,3 +1,86 @@
+#include <iostream>
+#include <iomanip>
+void swap(int &a, int &b)
+{
+	int temp = b;
+	b = a;
+	a = temp;
+}
+
+void print_array(int a[], size_t size)
+{
+	for (size_t i = 0; i < size; i++)
+		std::cout << a[i] << " ";
+	std::cout << "\n";
+}
+
+void reverse(int a[], size_t size)
+{
+	//iterative reverse for int array
+	size_t start{0}, end{size - 1};
+	while (start <= end)
+	{
+		swap(a[start], a[end]);
+		start++;
+		end--;
+	}
+	print_array(a, size);
+}
+
+void reverse(std::string &str, size_t begin, size_t end)
+{
+	//recursive reverse for std::string
+	if (begin >= end)
+		return;
+	else
+	{
+		char temp = str.at(begin);
+		str.at(begin) = str.at(end);
+		str.at(end) = temp;
+		reverse(str, ++begin, --end);
+	}
+}
+
+bool is_kth_bit_set(int num, int k)
+{
+	//explanation
+	// 1 << (k - 1) == 2^(k-1) which is 1 followed by k-zeroes
+	// by doing bitwise AND with num will give either one or zero
+	return (num & (1 << (k - 1)));
+}
+
+int num_of_set_bits(int num)
+{
+	//naive approach
+	int count{0};
+	//    while(num > 0)
+	//    {
+	// O(log_2(N)) time complexity O(1) auxiliary space
+	//        if((num & 1) > 0)
+	//            count++;
+	//        num = num >> 1;
+	//    }
+	// another approach
+	while (num > 0)
+	{
+		count++;
+		//Explanation
+		//binary representation of a power of 2 contains only single one
+		// eg -> 8 == 1000 , 2 == 10, etc
+		// the number below it will not ones in the place
+		// eg -> 8 - 1 = 7 == 0111 , 1 == 01
+		// hence taking bitwise and of n and n-1 will be zero whenever n is a
+		// power of 2
+		num = num & (num - 1);
+	}
+	return count;
+}
+
+int main()
+{
+	std::cout << num_of_set_bits(16384) << "\n";
+	return 0;
+}
 //#include "reverse.hpp"
 //#include <cmath>
 //#include <iostream>
@@ -200,34 +283,34 @@
 //    cout << total_amount_printed(5, 2, 1, 2);
 //    return 0;
 //}
-#include <iostream>
-#include <vector>
-#define fastio std::ios_base::sync_with_stdio(false), std::cin.tie(NULL), std::cout.tie(NULL)
+// #include <iostream>
+// #include <vector>
+// #define fastio std::ios_base::sync_with_stdio(false), std::cin.tie(NULL), std::cout.tie(NULL)
 
-int max_profit(std::vector<int> &stores, std::vector<int> &prices, std::vector<int> &people)
-{
-    int market_share{0}, profit{0}, max_profit{0};
-    for (int i = 0; i < stores.at(i); i++)
-    {
-        market_share = people.at(i) / stores.at(i);
-        profit = market_share * prices.at(i);
-        max_profit = std::max(profit, max_profit);
-    }
-    return max_profit;
-}
-int main()
-{
-    using namespace std;
-    fastio;
-    int T{0}, N{0};
-    cin >> T;
-    while (T--)
-    {
-        cin >> N;
-        vector<int> stores(N, 0), prices(N, 0), people(N, 0);
-        for (int i = 0; i < N; i++)
-            cin >> stores.at(i) >> people.at(i) >> prices.at(i);
-        cout << max_profit(stores, prices, people) << "\n";
-    }
-    return 0;
-}
+// int max_profit(std::vector<int> &stores, std::vector<int> &prices, std::vector<int> &people)
+// {
+//     int market_share{0}, profit{0}, max_profit{0};
+//     for (int i = 0; i < stores.at(i); i++)
+//     {
+//         market_share = people.at(i) / stores.at(i);
+//         profit = market_share * prices.at(i);
+//         max_profit = std::max(profit, max_profit);
+//     }
+//     return max_profit;
+// }
+// int main()
+// {
+//     using namespace std;
+//     fastio;
+//     int T{0}, N{0};
+//     cin >> T;
+//     while (T--)
+//     {
+//         cin >> N;
+//         vector<int> stores(N, 0), prices(N, 0), people(N, 0);
+//         for (int i = 0; i < N; i++)
+//             cin >> stores.at(i) >> people.at(i) >> prices.at(i);
+//         cout << max_profit(stores, prices, people) << "\n";
+//     }
+//     return 0;
+// }

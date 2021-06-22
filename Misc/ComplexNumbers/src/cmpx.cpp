@@ -1,4 +1,4 @@
-#include "cmpx.h"
+#include "../include/cmpx.hpp"
 #include <iostream>
 #include <cmath>
 #include <exception>
@@ -90,6 +90,7 @@ cmpx& cmpx::operator * (const cmpx &c)
 
 cmpx& cmpx::operator / (const cmpx &c)
 {
+	// ! this function is not working properly
     if(c.x == 0 && c.y == 0)
         throw math_error("Cannot divide by zero");
     else
@@ -135,3 +136,4 @@ cmpx& operator -= (cmpx& a,cmpx& b)
 	return a;
 	
 }
+
