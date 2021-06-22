@@ -1,4 +1,4 @@
-#include "mystring.h"
+#include "../include/mystring.hpp"
 #include <iostream>
 #include <cstring>
 std::ostream& operator<<(std::ostream &out,const mystring &obj)
@@ -55,7 +55,7 @@ mystring::mystring(mystring &&rhs) //move constructor
     rhs.str = nullptr;    
 }
 
-mystring& mystring::operator=(const mystring &rhs) //copy assingment
+mystring& mystring::operator=(const mystring &rhs) //copy assignment
 {
     if(this == &rhs)
         return *this;
@@ -95,8 +95,8 @@ mystring& mystring::operator+(const mystring &rhs)
     char *res = new char[strlen(rhs.str)+strlen(str)+1];
     strcpy(res,str);
     strcat(res,rhs.str);
-    mystring result(res);
-    return result;
+    this->str = res;
+    return *this;
 }
 mystring& mystring::operator-()
 {
@@ -105,8 +105,9 @@ mystring& mystring::operator-()
     return *this;
 }
 
-mystring& mystring::getline(std::istream &in,mystring &obj)
-{
+// ! not implemented yet
+// mystring& mystring::getline(std::istream &in,mystring &obj)
+// {
     
-}
+// }
 

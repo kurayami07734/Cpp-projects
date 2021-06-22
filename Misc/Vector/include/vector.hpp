@@ -1,6 +1,8 @@
-#ifndef VECTOR_H
-#define VECTOR_H
+#ifndef VECTOR_HPP
+#define VECTOR_HPP
 #include <iostream>
+// Author : Aditya Ghidora
+// Class modelling 3D euclidean vectors
 class vector
 {
 private:
@@ -31,4 +33,4 @@ public:
 
 };
 
-#endif // VECTOR_H
+#endif // VECTOR_HPP
