@@ -35,58 +35,51 @@ list::list(const list &l)
 
 void list::insert_node(node *ptr, size_t pos)
 {
-    if (pos >= 0 && pos <= length)
+    if (pos > length)
+        throw list_error("Out of bounds");
+
+    if (pos == 1)
     {
-        length++;
-        if (pos == 1)
-        {
-            ptr->next = head;
-            head = ptr;
-        }
-        else
-        {
-            node *pre, *cur;
-            cur = head;
-            for (size_t i = 0; i < pos; i++)
-            {
-                pre = cur;
-                cur++;
-            }
-            ptr->next = cur;
-            pre->next = ptr;
-            delete pre;
-            delete cur;
-        }
+        ptr->next = head;
+        head = ptr;
     }
     else
-        throw list_error("Out of bounds");
+    {
+        node *pre, *cur;
+        cur = head;
+        for (size_t i = 0; i < pos; i++)
+        {
+            pre = cur;
+            cur++;
+        }
+        ptr->next = cur;
+        pre->next = ptr;
+        delete pre;
+        delete cur;
+    }
+    length++;
 }
 
 void list::delete_node(size_t pos)
 {
-    if (pos >= 0 && pos <= length)
-    {
-        length--;
-        if (pos == 1)
-        {
-            head = head->next;
-        }
-        else
-        {
-            node *pre, *cur;
-            cur = head;
-            for (size_t i = 0; i < pos; i++)
-            {
-                pre = cur;
-                cur = cur->next;
-            }
-            pre->next = nullptr;
-            delete pre;
-            delete cur;
-        }
-    }
-    else
+    if (pos > length)
         throw list_error("Out of bounds");
+    if (pos == 1)
+        head = head->next;
+    else
+    {
+        node *pre{nullptr}, *cur{nullptr};
+        cur = head;
+        for (size_t i = 0; i < pos; i++)
+        {
+            pre = cur;
+            cur = cur->next;
+        }
+        pre->next = cur->next;
+        // delete pre;
+        // delete cur;
+    }
+    length--;
 }
 
 void list::sort() //selection sort
@@ -196,22 +189,20 @@ void list::reverse()
     //    delete next;
 }
 
-size_t list::size()
+size_t list::size() const
 {
     return this->length;
 }
 
 int list::operator[](size_t index)
 {
-    if (index >= 0 && index <= length)
-    {
-        node *ptr = head;
-        for (size_t i = 0; i < index; i++)
-            ptr = ptr->next;
-        return ptr->data;
-    }
-    else
+    if (index >= length)
         throw list_error("Out of bounds");
+
+    node *ptr = head;
+    for (size_t i = 0; i < index; i++)
+        ptr = ptr->next;
+    return ptr->data;
 }
 
 std::ostream &operator<<(std::ostream &out, const list &l)

@@ -26,7 +26,7 @@ public:
     void sort();
 //    void sort_by_node_swap();
     void reverse();
-    size_t size();
+    size_t size() const;
     
     //operators
     int operator[](size_t);
