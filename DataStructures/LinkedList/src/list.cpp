@@ -62,7 +62,7 @@ void list::insert_node(node *ptr, size_t pos)
 
 void list::delete_node(size_t pos)
 {
-    if (pos > length)
+    if (pos >= length)
         throw list_error("Out of bounds");
     if (pos == 1)
         head = head->next;

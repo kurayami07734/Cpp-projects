@@ -6,6 +6,14 @@ int main()
 	list l(a, 5);
 	l.sort();
 	std::cout << l;
-	l.delete_node(2);
+	std::cout << l[3] << "\n";
+	try
+	{
+		l.delete_node(5);
+	}
+	catch (const list_error &e)
+	{
+		std::cerr << e.what() << "\n";
+	}
 	std::cout << l;
 }
