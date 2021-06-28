@@ -19,7 +19,7 @@
    
   </details>
 
-3. [Refreshers](Misc/Refreshers/src/main.cpp)
+3. [Notes](Notes/README.md)
 
 4. <details open>
     <summary> Competitive Programming </summary>
