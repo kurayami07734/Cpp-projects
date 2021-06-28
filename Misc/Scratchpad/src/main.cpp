@@ -1,5 +1,8 @@
 #include <iostream>
+#include <vector>
 #include <iomanip>
+#include <algorithm>
+#include <map>
 void swap(int &a, int &b)
 {
 	int temp = b;
@@ -76,9 +79,39 @@ int num_of_set_bits(int num)
 	return count;
 }
 
+bool are_elements_squared(std::vector<int> &v1, std::vector<int> &v2)
+{
+
+	if (v1.size() != v2.size())
+		return false;
+	//naive approach O(nlogn)
+	// std::sort(v1.begin(), v1.end());
+	// std::sort(v2.begin(), v2.end());
+	// for (size_t i = 0; i < v1.size(); i++)
+	// {
+	// 	if (v1.at(i) * v1.at(i) != v2.at(i))
+	// 		return false;
+	// }
+	// return true;
+	
+	// Better approach 
+	// linear time and constant space
+	int sqr_sum{0}, rolling_sqr_sum{0};
+	for (const int &i : v1)
+		rolling_sqr_sum += i * i;
+	for (const int &i : v2)
+		sqr_sum += i;
+	return (rolling_sqr_sum == sqr_sum);
+}
+
+// bool is_anagram(std::string &s1, std::string &s2)
+// {
+
+// }
 int main()
 {
-	std::cout << num_of_set_bits(16384) << "\n";
+	std::vector<int> v1 = {1, 2, 3, 3}, v2 = {9, 4, 1, 9};
+	std::cout << std::boolalpha << are_elements_squared(v1, v2) << "\n";
 	return 0;
 }
 //#include "reverse.hpp"
