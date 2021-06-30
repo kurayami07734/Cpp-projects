@@ -6,6 +6,9 @@
 
    </details>
 
-- <details> <summary> STL </summary>
+- <details> <summary> C++ features </summary>
 
   1. [Set and Unordered Set]()
+  2. [Lambda Expression](Cpp/Lambdas.md)
+
+  </details>
