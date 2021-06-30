@@ -1,4 +1,4 @@
-# Big $O$ Notation
+# Big $`O`$ Notation
 
 - It is used to analyze the time or space complexity of a
   given algorithm.
