@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <algorithm>
 #include <map>
+#include <typeinfo>
 void swap(int &a, int &b)
 {
 	int temp = b;
@@ -93,8 +94,8 @@ bool are_elements_squared(std::vector<int> &v1, std::vector<int> &v2)
 	// 		return false;
 	// }
 	// return true;
-	
-	// Better approach 
+
+	// Better approach
 	// linear time and constant space
 	int sqr_sum{0}, rolling_sqr_sum{0};
 	for (const int &i : v1)
@@ -108,10 +109,14 @@ bool are_elements_squared(std::vector<int> &v1, std::vector<int> &v2)
 // {
 
 // }
+
+auto multiply = [](int x = 1, int y = 1) -> int
+{ return x * y; };
 int main()
 {
-	std::vector<int> v1 = {1, 2, 3, 3}, v2 = {9, 4, 1, 9};
-	std::cout << std::boolalpha << are_elements_squared(v1, v2) << "\n";
+	// std::vector<int> v1 = {1, 2, 3, 3}, v2 = {9, 4, 1, 9};
+	// std::cout << std::boolalpha << are_elements_squared(v1, v2) << "\n";
+	std::cout << multiply() << std::endl;
 	return 0;
 }
 //#include "reverse.hpp"
