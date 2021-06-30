@@ -2,7 +2,7 @@
 
 - It is used to analyze the time or space complexity of a
   given algorithm.
-- The $`O(f(N))`$ represents the limiting behaviour of the algorithm as $`N\to \infty`$
+- The $`O(f(N))`$ represents the limiting behaviour of the algorithm as $`N\to \infty`$ where $`N`$ is size of input
 - $`f(N)`$ can be any mathematical function but some common ones are listed below
 
   | Big $`O`$      |       Common Name       |
