@@ -5,6 +5,7 @@
 1. [introduction](#intro)
 2. [structure](#struct)
 3. [Examples of stateless lambdas](#eg-stls)
+4. [Stateful lambdas](#sftl)
 
 ## <a name="intro"> Introduction </a>
 
@@ -62,4 +63,34 @@ int add_if(std::vector<int> &v, std::function<bool(int)> func)
 
 ```
 
-## Examples of Stateful Lambdas
+## <a name="stfl"> Stateful Lambdas </a>
+
+1.  It refers to lambdas which have non-empty capture lists
+2.  Capture list - defines what variables will be captured
+3.  Different ways to capture variables
+
+    1. Capture by (const) value
+
+       ```c++
+       int x{100};
+
+       [x] (){std::cout << x;}(); //outputs 200
+       ```
+
+       captured value **cannot** be modified in the lambda
+
+       **`mutable`** can be used to allow modification
+
+       ```c++
+       int x{50};
+       [x] () mutable {std::cout << x*x;}(); //outputs 2500
+       ```
+
+    2. Capture by reference
+
+       ```c++
+       int x{100};
+       [&x] (){std::cout << ++x;} // outputs 101
+       ```
+
+    3.
