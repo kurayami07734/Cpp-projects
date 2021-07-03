@@ -16,7 +16,7 @@ int linear_search(std::vector<int> &v, int value)
 
 //using std::find
 
-int index = std::find(v.begin(), v.end(), value);
+auto index = std::find(v.begin(), v.end(), value); // returns iterator
 ```
 
 ## Binary search

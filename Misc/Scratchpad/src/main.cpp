@@ -152,7 +152,8 @@ int main()
 	// auto is_odd = [](int x)
 	// { return x % 2 != 0; };
 	//filter_vector(v1, is_even);
-	std::cout << binary_search(v1, 5) << std::endl;
+	auto index = find(v1.begin(), v1.end(), 5);
+	std::cout << binary_search(v1, 5) << *index << std::endl;
 	return 0;
 }
 //#include "reverse.hpp"
