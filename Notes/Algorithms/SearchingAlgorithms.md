@@ -33,7 +33,7 @@ graph LR
     Step2 -- No --> Step5{is greater than value};
     Step5 -- Yes --> Step6[set upper bound equal to middle index];
     Step5 -- No --> Step7[set lower bound equal to middle index];
-    Step7 --> Step8[repeat till upper and lower bound are unequal ];
+    Step7 --> Step8[repeat until lower bound is less than upper bound ];
     Step6 --> Step8;
     Step8 --> Step2;
 end
