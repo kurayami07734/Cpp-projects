@@ -127,16 +127,32 @@ int add_if(std::vector<int> &v, std::function<bool(int)> func)
 	return sum;
 }
 
+int binary_search(std::vector<int> &v, int value)
+{
+	size_t hi{v.size() - 1}, lo{0}, mid{0};
+	while (lo <= hi)
+	{
+		mid = (hi + lo) / 2;
+		if (v.at(mid) == value)
+			return mid;
+		else if (v.at(mid) > value)
+			hi = mid - 1;
+		else
+			lo = mid + 1;
+	}
+	return -1;
+}
+
 auto multiply = [](int x = 1, int y = 1) -> int
 { return x * y; };
 int main()
 {
 	std::vector<int> v1 = {1, 2, 3, 3}, v2 = {9, 4, 1, 9};
 	// std::cout << std::boolalpha << are_elements_squared(v1, v2) << "\n";
-	auto is_odd = [](int x)
-	{ return x % 2 != 0; };
+	// auto is_odd = [](int x)
+	// { return x % 2 != 0; };
 	//filter_vector(v1, is_even);
-	std::cout << add_if(v1, is_odd) << std::endl;
+	std::cout << binary_search(v1, 5) << std::endl;
 	return 0;
 }
 //#include "reverse.hpp"
