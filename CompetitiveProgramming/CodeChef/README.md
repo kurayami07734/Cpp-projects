@@ -24,6 +24,14 @@
    
    </details>
 
+- <details>
+   <summary> <a href="https://www.codechef.com/JULY21C">July Long Challenge 2021</a> </summary>
+   
+   1. [Maximum Production](JulyLongChallenge2021/Maximum_Production.cpp)
+   2. [Relativity](JulyLongChallenge2021/Relativity.cpp)
+   
+   </details>
+
 - <details> 
   <summary> <a href="https://www.codechef.com/LRNDSA02"> LRNDSA02 </a> </summary>
 
