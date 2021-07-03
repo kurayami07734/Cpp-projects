@@ -5,7 +5,7 @@
 1. [introduction](#intro)
 2. [structure](#struct)
 3. [Examples of stateless lambdas](#eg-stls)
-4. [Stateful lambdas](#sftl)
+4. [Stateful lambdas](#stfl)
 
 ## <a name="intro"> Introduction </a>
 

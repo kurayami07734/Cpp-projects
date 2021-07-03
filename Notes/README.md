@@ -3,6 +3,7 @@
 - <details open> <summary>Algorithms </summary>
 
   1. [Searching Algorithms](Algorithms/SearchingAlgorithms.md)
+  2. [Bubble, Selection, Insertion sort](Algorithms/ElementarySorts.md)
 
   </details>
 

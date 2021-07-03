@@ -59,3 +59,23 @@ int binary_search(std::vector<int> &v, int value)
 }
 
 ```
+
+## Naive String Search
+
+```c++
+size_t string_search(std::string &longer, std::string &shorter)
+{
+	size_t count{0};
+	for (size_t i = 0; i < longer.size(); i++)
+	{
+		for (size_t j = 0; j < shorter.size(); j++)
+		{
+			if (longer.at(i + j) != shorter.at(j))
+				break;
+			if (j == shorter.size() - 1)
+				count++;
+		}
+	}
+	return count;
+}
+```

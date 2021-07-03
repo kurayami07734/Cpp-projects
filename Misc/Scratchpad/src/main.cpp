@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <functional>
 #include <typeinfo>
+#include <string>
 void swap(int &a, int &b)
 {
 	int temp = b;
@@ -11,10 +12,10 @@ void swap(int &a, int &b)
 	a = temp;
 }
 
-void print_array(int a[], size_t size)
+void print_array(std::vector<int> &v)
 {
-	for (size_t i = 0; i < size; i++)
-		std::cout << a[i] << " ";
+	for (size_t i = 0; i < v.size(); i++)
+		std::cout << v[i] << " ";
 	std::cout << "\n";
 }
 
@@ -28,7 +29,7 @@ void reverse(int a[], size_t size)
 		start++;
 		end--;
 	}
-	print_array(a, size);
+	// print_array(a, size);
 }
 
 void reverse(std::string &str, size_t begin, size_t end)
@@ -143,17 +144,97 @@ int binary_search(std::vector<int> &v, int value)
 	return -1;
 }
 
+size_t string_search(std::string &longer, std::string &shorter)
+{
+	size_t count{0};
+	for (size_t i = 0; i < longer.size(); i++)
+	{
+		for (size_t j = 0; j < shorter.size(); j++)
+		{
+			if (longer.at(i + j) != shorter.at(j))
+				break;
+			if (j == shorter.size() - 1)
+				count++;
+		}
+	}
+	return count;
+}
+// longer : abcabc
+// shorter : abc
+
+//
+
+// int string_search(std::string &longer, std::string &pattern, size_t hi = 0, size_t lo = 0)
+// {
+// 	hi = longer.size() - 1;
+// 	if(longer.at(lo))
+// }
+
 auto multiply = [](int x = 1, int y = 1) -> int
 { return x * y; };
+
+void bubble_sort(std::vector<int> &v)
+{
+	for (size_t i = 0; i < v.size(); i++)
+	{
+		for (size_t j = 0; j + i < v.size() - 1; j++)
+			if (v.at(j) > v.at(j + 1))
+				swap(v.at(j), v.at(j + 1));
+	}
+}
+
+void optimized_bubble_sort(std::vector<int> &v)
+{
+	bool swapped{false};
+	for (size_t i = 0; i < v.size(); i++)
+	{
+		swapped = false;
+		for (size_t j = 0; j + i < v.size() - 1; j++)
+			if (v.at(j) > v.at(j + 1))
+			{
+				swap(v.at(j), v.at(j + 1));
+				swapped = true;
+			}
+		if (swapped == false)
+			break;
+	}
+}
+
+void selection_sort(std::vector<int> &v)
+{
+	int min{0};
+	for (size_t i = 0; i < v.size(); i++)
+	{
+		min = i;
+		for (size_t j = i + 1; j < v.size(); j++)
+			if (v.at(min) > v.at(j))
+				min = j;
+		swap(v.at(min), v.at(i));
+	}
+}
+
+void insertion_sort(std::vector<int> &v)
+{
+	for (int i = 1; i < v.size(); i++)
+	{
+		int current_val = v.at(i), j{0};
+		for (j = i - 1; j >= 0 && v.at(j) > current_val; j--)
+			v.at(j + 1) = v.at(j);
+		v.at(j + 1) = current_val;
+	}
+}
+
 int main()
 {
-	std::vector<int> v1 = {1, 2, 3, 3}, v2 = {9, 4, 1, 9};
-	// std::cout << std::boolalpha << are_elements_squared(v1, v2) << "\n";
-	// auto is_odd = [](int x)
-	// { return x % 2 != 0; };
-	//filter_vector(v1, is_even);
-	auto index = find(v1.begin(), v1.end(), 3);
-	std::cout << index << std::endl;
+	std::vector<int> v1 = {1, 3, 5, 3}, v2 = {9, 4, 1, 9, 5, -1, 35, 69};
+	// // std::cout << std::boolalpha << are_elements_squared(v1, v2) << "\n";
+	// // auto is_odd = [](int x)
+	// // { return x % 2 != 0; };
+	// //filter_vector(v1, is_even);
+	// auto index = find(v1.begin(), v1.end(), 3);
+	// std::string s1{"abc"}, s2{"bacabdcdedfre2gdkslh"};
+	insertion_sort(v2);
+	print_array(v2);
 	return 0;
 }
 //#include "reverse.hpp"
