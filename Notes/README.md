@@ -1,6 +1,12 @@
 # Notes
 
-- <details> <summary>Math stuffs </summary>
+- <details open> <summary>Algorithms </summary>
+
+  1. [Searching Algorithms](Algorithms/SearchingAlgorithms.md)
+
+  </details>
+
+- <details> <summary> Math stuffs </summary>
 
   1. [Big $`O`$ notation](Maths/BigO.md)
 

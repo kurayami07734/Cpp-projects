@@ -40,19 +40,22 @@ end
 ```
 
 ```c++
-//simple recursive implementation
+//simple iterative implementation
 
-int binary_search(std::vector<int> &v, int value, size_t hi = v.size()-1, size_t lo = 0)
+int binary_search(std::vector<int> &v, int value)
 {
-    if(hi == lo)
-        return -1;
-    int mid = (lo + hi)/2;
-    if(v.at(mid) == value)
-        return mid;
-    else if(v.at(mid) > value)
-        hi = mid;
-    else
-        lo = mid;
-    return binary_search(v, value, hi, lo);
+	size_t hi{v.size() - 1}, lo{0}, mid{0};
+	while (lo <= hi)
+	{
+		mid = (hi + lo) / 2;
+		if (v.at(mid) == value)
+			return mid;
+		else if (v.at(mid) > value)
+			hi = mid - 1;
+		else
+			lo = mid + 1;
+	}
+	return -1;
 }
+
 ```
