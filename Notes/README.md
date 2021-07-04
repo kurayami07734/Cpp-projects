@@ -4,6 +4,7 @@
 
   1. [Searching Algorithms](Algorithms/SearchingAlgorithms.md)
   2. [Bubble, Selection, Insertion sort](Algorithms/ElementarySorts.md)
+  3. [Merge Sort](Algorithms/MergeSort.md)
 
   </details>
 

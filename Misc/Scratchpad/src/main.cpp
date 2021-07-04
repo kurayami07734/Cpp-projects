@@ -12,10 +12,11 @@ void swap(int &a, int &b)
 	a = temp;
 }
 
-void print_array(std::vector<int> &v)
+template <typename Iter>
+void print_array(const Iter &start, const Iter &end)
 {
-	for (size_t i = 0; i < v.size(); i++)
-		std::cout << v[i] << " ";
+	for (auto i = start; i != end; ++i)
+		std::cout << *i << " ";
 	std::cout << "\n";
 }
 
@@ -215,7 +216,7 @@ void selection_sort(std::vector<int> &v)
 
 void insertion_sort(std::vector<int> &v)
 {
-	for (int i = 1; i < v.size(); i++)
+	for (size_t i = 1; i < v.size(); i++)
 	{
 		int current_val = v.at(i), j{0};
 		for (j = i - 1; j >= 0 && v.at(j) > current_val; j--)
@@ -224,17 +225,55 @@ void insertion_sort(std::vector<int> &v)
 	}
 }
 
+template <typename Iter>
+void merge(Iter start, Iter mid, Iter end)
+{
+	std::vector<typename Iter::value_type> temp;
+	temp.reserve(std::distance(start,end));
+	Iter left{start}, right{mid};
+	while (left != mid && right != end)
+	{
+		if (*right > *left)
+		{
+			temp.push_back(*left);
+			left++;
+		}
+		else
+		{
+			temp.push_back(*right);
+			right++;
+		}
+	}
+	temp.insert(temp.end(), left, mid);
+	temp.insert(temp.end(), right, end);
+	std::move(temp.begin(), temp.end(), start);
+}
+
+template <typename Iter>
+void merge_sort(Iter start, Iter end)
+{
+	int size = std::distance(start, end);
+	if (size <= 1)
+	{
+		return;
+	}
+	auto mid = std::next(start, size / 2);
+	merge_sort(start, mid);
+	merge_sort(mid, end);
+	merge(start, mid, end);
+}
+
 int main()
 {
-	std::vector<int> v1 = {1, 3, 5, 3}, v2 = {9, 4, 1, 9, 5, -1, 35, 69};
+	std::vector<int> v = {1, 0, 3};
 	// // std::cout << std::boolalpha << are_elements_squared(v1, v2) << "\n";
 	// // auto is_odd = [](int x)
 	// // { return x % 2 != 0; };
 	// //filter_vector(v1, is_even);
 	// auto index = find(v1.begin(), v1.end(), 3);
 	// std::string s1{"abc"}, s2{"bacabdcdedfre2gdkslh"};
-	insertion_sort(v2);
-	print_array(v2);
+	merge_sort(v.begin(), v.end());
+	print_array(v.begin(), v.end());
 	return 0;
 }
 //#include "reverse.hpp"

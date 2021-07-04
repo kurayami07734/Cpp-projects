@@ -97,6 +97,8 @@ void selection_sort(std::vector<int> &v)
 
 ## Insertion Sort
 
+Really fast for nearly sorted array
+
 ```mermaid
 graph LR
     subgraph "Insertion Sort";
