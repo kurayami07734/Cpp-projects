@@ -22,7 +22,8 @@ end
 
 # This is a comment
 
-target: dependencies #basic recipe template
+# basic recipe template
+target: dependencies
     actions
 
 ```

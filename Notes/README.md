@@ -21,4 +21,10 @@
 
   </details>
 
+- <details> <summary> Miscellaneous </summary>
+
+  1. [Makefiles](Misc/makefiles.md)
+
+  </details>
+
 - [Bitwise Manipulation](BitwiseManipulation/Bitwise.md)
