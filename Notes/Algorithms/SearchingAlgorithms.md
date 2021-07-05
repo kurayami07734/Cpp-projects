@@ -4,6 +4,8 @@
 
 It can be implemented in many ways
 
+[my implementation](../../Algorithms/Searching/include/linear_search.hpp)
+
 ```c++
 // simple for loop
 int linear_search(std::vector<int> &v, int value)
@@ -14,6 +16,22 @@ int linear_search(std::vector<int> &v, int value)
     return -1;
 }
 
+//template function
+template <typename Iter, typename T>
+int linear_search(Iter start, Iter end, T value)
+{
+    int index{0};
+    for (Iter i = start; i != end; ++i)
+    {
+        if(*i == value)
+            return index;
+        index++;
+    }
+    return -1;
+}
+
+
+
 //using std::find
 
 auto index = std::find(v.begin(), v.end(), value); // returns iterator
@@ -21,7 +39,9 @@ auto index = std::find(v.begin(), v.end(), value); // returns iterator
 
 ## Binary search
 
-Faster way to search within sorted data
+Faster way to search within **sorted** data
+
+[my implementation](../../Algorithms/Searching/include/binary_search.hpp)
 
 $`O(log(N))`$ time complexity
 
@@ -57,6 +77,25 @@ int binary_search(std::vector<int> &v, int value)
 	}
 	return -1;
 }
+
+//template function
+template <typename Iter, typename T>
+int binarySearch(Iter start, Iter end, T value)
+{
+	Iter lo{start}, hi{std::prev(end)}, mid{0};
+	while (lo <= hi)
+	{
+		mid = lo + (hi - lo) / 2;
+		if (*mid == value)
+			return std::distance(start, mid);
+		else if (*mid > value)
+			hi = mid - 1;
+		else
+			lo = mid + 1;
+	}
+	return -1;
+}
+
 
 ```
 
