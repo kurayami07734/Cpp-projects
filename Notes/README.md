@@ -20,3 +20,5 @@
   2. [Lambda Expression](Cpp/Lambdas.md)
 
   </details>
+
+- [Bitwise Manipulation](BitwiseManipulation/Bitwise.md)
