@@ -1,91 +1,94 @@
-#
-# 'make'        build executable file 'main'
-# 'make clean'  removes all .o and executable files
-#
+# #
+# # 'make'        build executable file 'main'
+# # 'make clean'  removes all .o and executable files
+# #
 
-# define the Cpp compiler to use
-CXX = g++
+# # define the Cpp compiler to use
+# CXX = g++
 
-# define any compile-time flags
-CXXFLAGS	:= -std=c++17 -Wall -Wextra -g
+# # define any compile-time flags
+# CXXFLAGS	:= -std=c++17 -Wall -Wextra -g
 
-# define library paths in addition to /usr/lib
-#   if I wanted to include libraries not in /usr/lib I'd specify
-#   their path using -Lpath, something like:
-LFLAGS =
+# # define library paths in addition to /usr/lib
+# #   if I wanted to include libraries not in /usr/lib I'd specify
+# #   their path using -Lpath, something like:
+# LFLAGS =
 
-# define output directory
-OUTPUT	:= output
+# # define output directory
+# OUTPUT	:= bin
 
-# define source directory
-SRC		:= src
+# # define source directory
+# SRC		:= src
 
-# define include directory
-INCLUDE	:= include
+# #define object directory
 
-# define lib directory
-LIB		:= lib
+# # define include directory
+# INCLUDE	:= include
 
-ifeq ($(OS),Windows_NT)
-MAIN	:= main.exe
-SOURCEDIRS	:= $(SRC)
-INCLUDEDIRS	:= $(INCLUDE)
-LIBDIRS		:= $(LIB)
-FIXPATH = $(subst /,\,$1)
-RM			:= del /q /f
-MD	:= mkdir
-else
-MAIN	:= main
-SOURCEDIRS	:= $(shell find $(SRC) -type d)
-INCLUDEDIRS	:= $(shell find $(INCLUDE) -type d)
-LIBDIRS		:= $(shell find $(LIB) -type d)
-FIXPATH = $1
-RM = rm -f
-MD	:= mkdir -p
-endif
+# # define lib directory
+# LIB		:= lib
 
-# define any directories containing header files other than /usr/include
-INCLUDES	:= $(patsubst %,-I%, $(INCLUDEDIRS:%/=%))
+# ifeq ($(OS),Windows_NT)
+# MAIN	:= main.exe
+# SOURCEDIRS	:= $(SRC)
+# INCLUDEDIRS	:= $(INCLUDE)
+# LIBDIRS		:= $(LIB)
+# FIXPATH = $(subst /,\,$1)
+# RM			:= del /q /f
+# MD	:= mkdir
+# else
+# MAIN	:= main
+# SOURCEDIRS	:= $(shell find $(SRC) -type d)
+# INCLUDEDIRS	:= $(shell find $(INCLUDE) -type d)
+# LIBDIRS		:= $(shell find $(LIB) -type d)
+# FIXPATH = $1
+# RM = rm -f
+# MD	:= mkdir -p
+# endif
 
-# define the C libs
-LIBS		:= $(patsubst %,-L%, $(LIBDIRS:%/=%))
+# # define any directories containing header files other than /usr/include
+# INCLUDES	:= $(patsubst %,-I%, $(INCLUDEDIRS:%/=%))
 
-# define the C source files
-SOURCES		:= $(wildcard $(patsubst %,%/*.cpp, $(SOURCEDIRS)))
+# # define the C libs
+# LIBS		:= $(patsubst %,-L%, $(LIBDIRS:%/=%))
 
-# define the C object files 
-OBJECTS		:= $(SOURCES:.cpp=.o)
+# # define the C source files
+# SOURCES		:= $(wildcard $(patsubst %,%/*.cpp, $(SOURCEDIRS)))
 
-#
-# The following part of the makefile is generic; it can be used to 
-# build any executable just by changing the definitions above and by
-# deleting dependencies appended to the file from 'make depend'
-#
+# # define the C object files 
+# OBJECTS		:= $(wildcard $(patsubst %,%/*.o, $(SOURCEDIRS)))
 
-OUTPUTMAIN	:= $(call FIXPATH,$(OUTPUT)/$(MAIN))
+# #
+# # The following part of the makefile is generic; it can be used to 
+# # build any executable just by changing the definitions above and by
+# # deleting dependencies appended to the file from 'make depend'
+# #
 
-all: $(OUTPUT) $(MAIN)
-	@echo Executing 'all' complete!
+# OUTPUTMAIN	:= $(call FIXPATH,$(OUTPUT)/$(MAIN))
 
-$(OUTPUT):
-	$(MD) $(OUTPUT)
+# all: $(OUTPUT) $(MAIN)
+# 	@echo Executing 'all' complete!
 
-$(MAIN): $(OBJECTS) 
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $(OUTPUTMAIN) $(OBJECTS) $(LFLAGS) $(LIBS)
+# $(OUTPUT):
+# 	$(MD) $(OUTPUT)
 
-# this is a suffix replacement rule for building .o's from .c's
-# it uses automatic variables $<: the name of the prerequisite of
-# the rule(a .c file) and $@: the name of the target of the rule (a .o file) 
-# (see the gnu make manual section about automatic variables)
-.cpp.o:
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $<  -o $@
+# $(MAIN): $(OBJECTS) 
+# 	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $(OUTPUTMAIN) $(OBJECTS) $(LFLAGS) $(LIBS)
 
-.PHONY: clean
-clean:
-	$(RM) $(OUTPUTMAIN)
-	$(RM) $(call FIXPATH,$(OBJECTS))
-	@echo Cleanup complete!
+# # this is a suffix replacement rule for building .o's from .c's
+# # it uses automatic variables $<: the name of the prerequisite of
+# # the rule(a .c file) and $@: the name of the target of the rule (a .o file) 
+# # (see the gnu make manual section about automatic variables)
+# .cpp.o:
+# 	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $<  -o $@
 
-run: all
-	./$(OUTPUTMAIN)
-	@echo Executing 'run: all' complete!
+# .PHONY: clean
+
+# clean:
+# 	$(RM) $(OUTPUTMAIN)
+# 	$(RM) $(call FIXPATH,$(OBJECTS))
+# 	@echo Cleanup complete!
+
+# run: all
+# 	./$(OUTPUTMAIN)
+# 	@echo Executing 'run: all' complete!
