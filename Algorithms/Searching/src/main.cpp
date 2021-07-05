@@ -3,8 +3,8 @@
 #include "../include/linear_search.hpp"
 int main()
 {
-	std::vector<int> v = {1, 2, 3, 4, 5};
+	std::vector<double> v = {1.03, 2.203, 3.003, 4.69, 5.10};
 	//std::cout << linear_search(v.begin(), v.end(), 3) << "\n";
-	std::cout << binary_search(v.begin(), v.end(), 5) << "\n";
+	std::cout << binarySearch(v.begin(), v.end(), 4.69) << "\n";
 	return 0;
 }

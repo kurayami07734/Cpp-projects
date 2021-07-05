@@ -19,9 +19,9 @@ int binary_search(std::vector<int> &v, int value)
 }
 
 template <typename Iter, typename T>
-int binary_search(Iter start, Iter end, T value)
+int binarySearch(Iter start, Iter end, T value)
 {
-    Iter lo{start}, hi{end}, mid{0};
+    Iter lo{start}, hi{std::prev(end)}, mid{0};
     while (lo <= hi)
     {
         mid = lo + (hi - lo) / 2;
