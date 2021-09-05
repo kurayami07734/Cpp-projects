@@ -14,6 +14,6 @@ void print_array(const Iter &start, const Iter &end)
 int main()
 {
 	std::vector<int> v = {4, 3, -1, 2};
-	optimized_bubble_sort(v);
+	optimized_bubble_sort(v.begin(), v.end());
 	print_array(v.begin(), v.end());
 }

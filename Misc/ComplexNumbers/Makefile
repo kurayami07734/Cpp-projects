@@ -26,15 +26,15 @@ INCLUDE	:= include
 # define lib directory
 LIB		:= lib
 
-ifeq ($(OS),Windows_NT)
-MAIN	:= main.exe
-SOURCEDIRS	:= $(SRC)
-INCLUDEDIRS	:= $(INCLUDE)
-LIBDIRS		:= $(LIB)
-FIXPATH = $(subst /,\,$1)
-RM			:= del /q /f
-MD	:= mkdir
-else
+# ifeq ($(OS),Windows_NT)
+# MAIN	:= main.exe
+# SOURCEDIRS	:= $(SRC)
+# INCLUDEDIRS	:= $(INCLUDE)
+# LIBDIRS		:= $(LIB)
+# FIXPATH = $(subst /,\,$1)
+# RM			:= del /q /f
+# MD	:= mkdir
+# else
 MAIN	:= main
 SOURCEDIRS	:= $(shell find $(SRC) -type d)
 INCLUDEDIRS	:= $(shell find $(INCLUDE) -type d)
@@ -42,7 +42,7 @@ LIBDIRS		:= $(shell find $(LIB) -type d)
 FIXPATH = $1
 RM = rm -f
 MD	:= mkdir -p
-endif
+# endif
 
 # define any directories containing header files other than /usr/include
 INCLUDES	:= $(patsubst %,-I%, $(INCLUDEDIRS:%/=%))

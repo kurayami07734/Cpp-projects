@@ -113,7 +113,7 @@ std::ostream &operator<<(std::ostream &out, const cmpx &c)
 	out << c.x << " ";
 	out.setf(std::ios::showpos);
 	out << c.y << "i ";
-	out.unsetf();
+	out.unsetf(std::ios::showpos);
 	return out;
 }
 

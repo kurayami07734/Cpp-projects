@@ -28,3 +28,21 @@ void optimized_bubble_sort(std::vector<int> &v)
 			break;
 	}
 }
+template <typename ForwardIterator>
+void optimized_bubble_sort(ForwardIterator begin, ForwardIterator end)
+{
+	bool swapped{false};
+	for (auto i = begin; i != end; ++i)
+	{
+		for (auto j = begin; j < i; ++j)
+		{
+			if (*i > *j)
+			{
+				std::swap(*j, *(j + 1));
+				swapped = true;
+			}
+		}
+		if(!swapped)
+			break;
+	}
+}
