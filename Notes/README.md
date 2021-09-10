@@ -5,6 +5,12 @@
   1. [Searching Algorithms](Algorithms/SearchingAlgorithms.md)
   2. [Bubble, Selection, Insertion sort](Algorithms/ElementarySorts.md)
   3. [Merge Sort](Algorithms/MergeSort.md)
+  4. [Quick Sort !! still left](Algorithms/QuickSort.md)
+  5. [Radix Sort !! still left](Algorithms/RadixSort.md)
+
+  </details>
+
+- <details> <summary> Data structures (!! left to do) </summary>
 
   </details>
 
