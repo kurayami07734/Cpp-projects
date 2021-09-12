@@ -28,6 +28,7 @@ void optimized_bubble_sort(std::vector<int> &v)
 			break;
 	}
 }
+
 template <typename ForwardIterator>
 void optimized_bubble_sort(ForwardIterator begin, ForwardIterator end)
 {
