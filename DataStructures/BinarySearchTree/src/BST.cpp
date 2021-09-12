@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 #include "../include/BST.hpp"
 
 void BinarySearchTree::insert(int value)
@@ -39,24 +40,38 @@ void BinarySearchTree::insert(int value)
     }
 }
 
-void BinarySearchTree::display()
+void BinarySearchTree::display_BFS()
 {
-    
+    //breadth-first search from left to right
+    std::queue<int> q;
+    q.push(root->data);
+    BSTNode *ptr = root;
+    while(!q.empty())
+    {
+        std::cout << q.front() << " ";
+        q.pop();
+        if(ptr->left != nullptr)
+            q.push(ptr->left->data);
+        if(ptr->right != nullptr)
+            q.push(ptr->right->data);
+        ptr = find(q.front());
+    }
+    std::cout << "\n";
 }
 
-bool BinarySearchTree::find(int key)
+BSTNode* BinarySearchTree::find(int key)
 {
     BSTNode *ptr = root;
     while (ptr != nullptr)
     {
         if (ptr->data == key)
-            return true;
+            return ptr;
         else if (ptr->data > key)
             ptr = ptr->left;
         else
             ptr = ptr->right;
     }
-    return false;
+    return nullptr;
 }
 
 int BinarySearchTree::min()

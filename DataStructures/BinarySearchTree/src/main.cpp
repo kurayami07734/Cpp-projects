@@ -9,5 +9,8 @@ int main()
 	bst.insert(30);
 	bst.insert(8);
 	bst.insert(7);
-	std::cout << bst.max() << " " << bst.min() << std::endl;
+	bst.insert(9);
+	bst.insert(12);
+	bst.insert(45);
+	bst.display_BFS();
 }

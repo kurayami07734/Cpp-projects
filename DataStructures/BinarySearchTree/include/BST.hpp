@@ -26,8 +26,8 @@ public:
     {
     }
     void insert(int value);
-    void display();
-    bool find(int key);
+    void display_BFS();
+    BSTNode* find(int key);
     int max();
     int min();
 };
