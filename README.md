@@ -6,6 +6,7 @@
   1.  [Linked list class](DataStructures/LinkedList/include/list.hpp)
   2.  [Stack implemented using node pointer](DataStructures/Stack/include/Stack.hpp)
   3.  [Queue implemented using node pointers](DataStructures/Queue/include/Queue.hpp)
+  4.  [Binary search tree](DataStructures/BinarySearchTree/include/BST.hpp)
 
   </details>
 
@@ -28,7 +29,7 @@
 
 - [Notes](Notes/README.md)
 
-- <details open>
+- <details>
    <summary> Competitive Programming </summary>
 
   1.  [C++ template file](Misc/template.cpp)
