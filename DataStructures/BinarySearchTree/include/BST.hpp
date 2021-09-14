@@ -1,7 +1,7 @@
 #ifndef BST_HPP
 #define BST_HPP
 #include <iostream>
-
+#include <vector>
 struct BSTNode
 {
 public:
@@ -18,7 +18,7 @@ public:
 class BinarySearchTree
 {
 private:
-    BSTNode *root = nullptr;
+    BSTNode *root;
 
 public:
     BinarySearchTree()
@@ -26,7 +26,12 @@ public:
     {
     }
     void insert(int value);
+    void insert(std::vector<int> &v);
     void display_BFS();
+    // Depth-first search based display functions
+    void display_pre_order();
+    void display_post_order();
+    void display_in_order();
     BSTNode* find(int key);
     int max();
     int min();

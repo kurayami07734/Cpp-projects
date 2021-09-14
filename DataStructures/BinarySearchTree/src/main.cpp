@@ -5,12 +5,7 @@
 int main()
 {
 	BinarySearchTree bst;
-	bst.insert(10);
-	bst.insert(30);
-	bst.insert(8);
-	bst.insert(7);
-	bst.insert(9);
-	bst.insert(12);
-	bst.insert(45);
+	std::vector<int> vec = {10, 20, 403, 54, 9, 89, 0, 12};
+	bst.insert(vec);
 	bst.display_BFS();
 }
