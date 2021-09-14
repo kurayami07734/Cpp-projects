@@ -7,6 +7,7 @@
 2.  [Stack implemented using node pointer](DataStructures/Stack/include/Stack.hpp)
 3.  [Queue implemented using node pointers](DataStructures/Queue/include/Queue.hpp)
 4.  [Binary search tree](DataStructures/BinarySearchTree/include/BST.hpp)
+5.  [(max) Binary Heap ](DataStructures/BinaryHeaps/include/BinaryHeap.hpp)
 
   </details>
 
