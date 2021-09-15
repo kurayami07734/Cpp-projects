@@ -3,7 +3,7 @@
 #include "../include/insertion_sort.hpp"
 #include "../include/merge_sort.hpp"
 #include "../include/selection_sort.hpp"
-#include "../include/radix_sort.hpp"
+
 template <typename Iter>
 void print_array(const Iter &start, const Iter &end)
 {
@@ -12,9 +12,7 @@ void print_array(const Iter &start, const Iter &end)
 	std::cout << "\n";
 }
 
-
-
 int main()
 {
-	std::cout << digit_count(59302) << "\n";
+	std::cout << "\n";
 }
