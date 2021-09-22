@@ -1,11 +1,11 @@
 # Standard Template Library (STL)
 
-<details open>
+<details>
 <summary> Containers </summary>
 
 1. _Sequential containers_ - Implements sequential data structures
    1. vector
-   2. list (doubly linked list)
+   2. [list (doubly linked list)](Containers/list.md)
    3. deque (double ended queue)
    4. array
    5. forward_list (singly linked list)
@@ -28,4 +28,7 @@
 
 <details>
 <summary> Algorithms </summary>
+
+1. [Searching algorithms](Algorithms/SearchingAlgos.md)
+
 </details>
