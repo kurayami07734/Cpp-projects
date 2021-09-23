@@ -14,15 +14,15 @@
    2. [priority_queue](Containers/priority_queue.md)
    3. stack
 3. _Associative containers_ - Implements sorted data structures that can be quickly searched (logarithmic time complexity)
-   1. set
-   2. multiset
+   1. [set](Containers/set.md)
+   2. [multiset](Containers/set.md)
    3. [map](Containers/map.md)
    4. [multimap](Containers/map.md)
 4. _Unordered associative containers_ - Implements unsorted data structures that can be quickly searched
-   1. unordered_set
-   2. unordered_multiset
-   3. unordered_map
-   4. unordered_multimap
+   1. [unordered_set](Containers/set.md)
+   2. [unordered_multiset](Containers/set.md)
+   3. [unordered_map](Containers/map.md)
+   4. [unordered_multimap](Containers/map.md)
 
 </details>
 
