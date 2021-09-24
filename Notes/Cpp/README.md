@@ -1,7 +1,6 @@
 # Standard Template Library (STL)
 
-<details>
-<summary> Containers </summary>
+### Containers
 
 1. _Sequential containers_ - Implements sequential data structures
    1. vector
@@ -24,11 +23,6 @@
    3. [unordered_map](Containers/map.md)
    4. [unordered_multimap](Containers/map.md)
 
-</details>
+### Algorithms
 
-<details>
-<summary> Algorithms </summary>
-
-1. [Searching algorithms](Algorithms/SearchingAlgos.md)
-
-</details>
+5. [Searching algorithms](Algorithms/SearchingAlgos.md)
