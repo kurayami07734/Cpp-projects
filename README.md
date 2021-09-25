@@ -7,9 +7,9 @@
 2.  [Stack implemented using node pointer](DataStructures/Stack/include/Stack.hpp)
 3.  [Queue implemented using node pointers](DataStructures/Queue/include/Queue.hpp)
 4.  [Binary search tree](DataStructures/BinarySearchTree/include/BST.hpp)
-5.  [(max) Binary Heap ](DataStructures/BinaryHeaps/include/BinaryHeap.hpp)
+5.  [(max) Binary Heap](DataStructures/BinaryHeaps/include/BinaryHeap.hpp)
 
-  </details>
+</details>
 
 <details>
     <summary> Algorithms </summary>
@@ -17,7 +17,7 @@
 1.  [Searching Algorithms](Algorithms/Searching)
 2.  [Sorting Algorithms](Algorithms/Sorting)
 
-  </details>
+</details>
 
 <details>
    <summary> Misc. class based projects </summary>
@@ -26,7 +26,7 @@
 2.  [Class modelling complex numbers](Misc/ComplexNumbers/include/cmpx.hpp)
 3.  [Class modelling vectors (euclidean)](Misc/Vector/include/vector.hpp)
 
-  </details>
+</details>
 
 #### [Notes](Notes/README.md)
 
@@ -42,4 +42,4 @@
 
 _Note : above folders aren't comprehensive_
 
-   </details>
+</details>
