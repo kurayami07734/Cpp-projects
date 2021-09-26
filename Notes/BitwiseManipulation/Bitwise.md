@@ -1,5 +1,9 @@
 # Bitwise Manipulation
 
+<details>
+<summary> </summary> 
+</details>
+
 ## Bitwise Operators
 
 1. `&` bitwise _AND_
@@ -31,6 +35,33 @@ bool is_kth_bit_set(int num, int k)
 	return (num & (1 << (k - 1)));
 }
 
+int flip_bit(int num, size_t pos)
+{
+	int mask = 1 << pos;
+	num = num ^ mask;
+	return num;
+}
+
+int set_bit_to(int num, size_t pos, size_t val)
+{
+	int mask{1 << pos};
+	if (val == 1)
+		num |= mask;
+	else if (val == 0)
+	{
+		mask = ~mask;
+		num &= mask;
+	}
+	return num;
+}
+```
+
+## Problems
+
+<details>
+<summary> Counting total number of set bits </summary>
+
+```c++
 int num_of_set_bits(int num)
 {
 	//naive approach
@@ -57,10 +88,17 @@ int num_of_set_bits(int num)
 	}
 	return count;
 }
+```
 
+</details>
+
+<details>
+<summary> Converting to binary </summary>
+
+```c++
 bool is_bit_set(int num, int k)
 {
-	return (num & (1 << (k - 1)));
+	return (num & (1 << k));
 }
 // Convert positive integers to their binary counterparts
 std::string to_binary(size_t num)
@@ -71,15 +109,17 @@ std::string to_binary(size_t num)
 	else
 	{
 		int digits = log2(num) + 1;
-		for (int i = digits; i > 0; i--)
+		for (int i = digits - 1; i >= 0; i--)
 			result += std::to_string(is_bit_set(num, i));
 	}
 	return result;
 }
-
 ```
 
-## Problems
+</details>
+
+<details>
+<summary> Finding unique element in array </summary>
 
 ```c++
 // You are given an array of numbers
@@ -109,3 +149,5 @@ auto unique_element(Iter begin, Iter end)
 // This solution uses the property of XOR
 // a ^ a = 0 and a ^ a ^ b = b
 ```
+
+</details>
