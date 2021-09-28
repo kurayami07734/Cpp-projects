@@ -149,6 +149,28 @@ int replace_bits(int n, int m, int i, int j)
 </details>
 
 <details>
+<summary> fast exponentiation using bitwise operations</summary>
+
+```c++
+int fast_exponent(int base, int power)
+{
+	//fast exponentiation with bitwise operations
+	// O(log2(power))
+	int ans{1};
+	while (power > 0)
+	{
+		if (power & 1) // checks if last bit is set
+			ans *= base;
+		power >>= 1;
+		base *= base;
+	}
+	return ans;
+}
+```
+
+</details>
+
+<details>
 <summary> Converting to binary </summary>
 
 ```c++
@@ -249,6 +271,34 @@ void two_unique_elements(std::vector<int> &v)
 	std::cout << ans[0] << " " << ans[1] << "\n";
 }
 
+```
+
+</details>
+
+<details>
+<summary> Subsets of char set </summary>
+
+```c++
+std::string filter(int num, std::string set)
+{
+	// creates a mapping b/w the binary representation
+	// and the permutation of the set
+	std::string result;
+	for (int i = 0; i < set.size(); i++)
+	{
+		if (num & (1 << i))
+			result += set.at(i);
+	}
+	return result;
+}
+
+void subsets(std::string set)
+{
+	// prints all the permutations of the set
+	int bound = fast_exponent(2, set.size());
+	for (int i = 0; i < bound; i++)
+		std::cout << filter(i, set) << "\n";
+}
 ```
 
 </details>
