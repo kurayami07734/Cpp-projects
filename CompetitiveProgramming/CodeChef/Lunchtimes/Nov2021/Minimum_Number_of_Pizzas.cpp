@@ -17,9 +17,11 @@ using ll = long long;
 const int MOD = 1e9 + 7;
 using namespace std;
 
+//!solved after the contest
+
 void min_pizzas(int n, int k)
 {
-    cout << lcm(n, k) / k << "\n";
+    cout << n / __gcd(n, k) << "\n";
 }
 
 int main()
