@@ -7,6 +7,7 @@
 3. [Merge Sort](Algorithms/MergeSort.md)
 4. [Quick Sort !! still left](Algorithms/QuickSort.md)
 5. [Radix Sort !! still left](Algorithms/RadixSort.md)
+6. [Kadane's Algorithm (Max subarray sum)](Algorithms/KadaneAlgo.md)
 
   </details>
 
