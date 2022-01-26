@@ -21,4 +21,14 @@ Class stores top pointer and a length variable
 
 1. Push ($`O(1)`$ time)
 2. Pop ($`O(1)`$ time)
-3. Peek - returns value at kth index ($`O(N)`$ time)
+
+
+## [Queue](../../DataStructures/Queue/include/Queue.hpp)
+
+Implemented queue using node pointers.
+Class stores front and back pointer and a length variable.
+
+### Operations
+
+1. Enqueue ($`O(1)`$ time)
+2. Dequeue ($`O(1)`$ time)

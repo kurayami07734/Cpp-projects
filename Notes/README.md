@@ -15,7 +15,7 @@
 
 1. [Linked lists, stacks and queues](DataStructures/LinearDS.md)
 2. [Binary Search Tree](DataStructures/BinarySearchTree.md)
-3. [Binary Heaps]()
+3. [Binary Heaps](DataStructures/BinaryHeaps.md)
 
   </details>
 
