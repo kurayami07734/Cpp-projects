@@ -11,7 +11,11 @@
 
   </details>
 
-<details> <summary> Data structures (!! left to do) </summary>
+<details open> <summary> Data structures (!! left to do) </summary>
+
+1. [Linked lists, stacks and queues](DataStructures/LinearDS.md)
+2. [Binary Search Tree](DataStructures/BinarySearchTree.md)
+3. [Binary Heaps]()
 
   </details>
 

@@ -4,6 +4,6 @@
 int main()
 {
 	using namespace std;
-	vector<int> v = {-2, 2, 5, -11, 6};
-	cout << maxSubarraySum(v);
+	vector<int> v = {-2, 3,-4};
+	cout << maxProduct(v) << "\n";
 }
