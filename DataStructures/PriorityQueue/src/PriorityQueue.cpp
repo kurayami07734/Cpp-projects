@@ -8,21 +8,47 @@ void PriorityQueue::enqueue(std::string &s, int priority)
         return;
     else
     {
-        size_t child_index = pq.size() - 1;
-        size_t parent_index = (child_index - 1) / 2;
-        while (pq.at(parent_index).priority > pq.at(child_index).priority)
+        int child = pq.size() - 1;
+        int parent = (child - 1) / 2;
+        while (pq.at(parent).priority > pq.at(child).priority && parent >= 0)
         {
-            std::swap(pq.at(parent_index), pq.at(child_index));
-            child_index = parent_index;
-            parent_index = (child_index - 1) / 2;
+            std::swap(pq.at(parent), pq.at(child));
+            child = parent;
+            parent = (child - 1) / 2;
         }
     }
 }
-void PriorityQueue::enqueue(std::vector<PQNode> &v)
+
+std::string PriorityQueue::dequeue()
 {
-    for(auto node : v)
-        enqueue(node.value, node.priority);
+    // low priority number is considered higher priority
+    std::string ans = pq.at(0).value;
+    pq.at(0) = pq.back();
+    if (pq.size() != 1)
+    {
+        int parent = 0;
+        int l_child = 2 * parent + 1;
+        int r_child = 2 * parent + 2;
+        int min_child = std::min(pq.at(l_child).priority, pq.at(r_child).priority);
+        while (pq.at(parent).priority > pq.at(min_child).priority)
+        {
+            std::swap(pq.at(parent), pq.at(min_child));
+            parent = min_child;
+            if (2 * parent + 1 < pq.size())
+                l_child = 2 * parent + 1;
+            if (2 * parent + 2 < pq.size())
+                r_child = 2 * parent + 2;
+            else
+                break;
+            min_child = std::min(pq.at(l_child).priority, pq.at(r_child).priority);
+        }
+    }
+    pq.pop_back();
+    return ans;
 }
-std::string &PriorityQueue::dequeue()
+
+void PriorityQueue::display()
 {
+    for(auto node : pq)
+        std::cout << node;
 }

@@ -12,6 +12,16 @@ struct PQNode
         : value(val), priority(priority)
     {
     }
+    friend std::ostream& operator<<(std::ostream& out, const PQNode &p)
+    {
+        out << "Name " << p.value << "\nPriority " << p.priority << "\n";
+        return out;
+    }
+    void operator=(const PQNode &p)
+    {
+        value = p.value;
+        priority = p.priority;
+    }
 };
 
 class PriorityQueue
@@ -23,8 +33,8 @@ private:
 public:
     PriorityQueue() = default;
     void enqueue(std::string &s, int priority);
-    void enqueue(std::vector<PQNode> &v);
-    std::string &dequeue();
+    std::string dequeue();
+    void display();
 };
 
 #endif // PRIORITY_QUEUE_HPP
