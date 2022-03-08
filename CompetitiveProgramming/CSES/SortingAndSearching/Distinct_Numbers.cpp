@@ -19,22 +19,10 @@ int main()
 {
 
     fastio;
-    int n{0};
-    cin >> n;
-    if (n == 1)
-        cout << "1\n";
-    else if (n <= 3)
-        cout << "NO SOLUTION\n";
-    else
+    int T{0};
+    cin >> T;
+    while (T--)
     {
-        vi v;
-        for (int i = 2; i <= n; i+=2)
-            v.push_back(i);
-        for (int i = 1; i <= n; i+=2)
-            v.push_back(i);
-        for(int num : v)
-            cout << num << " ";
     }
-
     return 0;
 }

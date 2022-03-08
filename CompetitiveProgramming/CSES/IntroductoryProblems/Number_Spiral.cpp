@@ -15,26 +15,27 @@ using ll = long long;
 const int MOD = 1e9 + 7;
 using namespace std;
 
+int solve(int a, int b)
+{
+    int num = 1;
+    int x = 1, y = 1;
+    while (x != a && y != b)
+    {
+        
+    }
+    return num;
+}
+
 int main()
 {
 
     fastio;
-    int n{0};
-    cin >> n;
-    if (n == 1)
-        cout << "1\n";
-    else if (n <= 3)
-        cout << "NO SOLUTION\n";
-    else
+    int T{0}, x{0}, y{0};
+    cin >> T;
+    while (T--)
     {
-        vi v;
-        for (int i = 2; i <= n; i+=2)
-            v.push_back(i);
-        for (int i = 1; i <= n; i+=2)
-            v.push_back(i);
-        for(int num : v)
-            cout << num << " ";
+        cin >> y >> x;
+        cout << solve(x, y) << "\n";
     }
-
     return 0;
 }
