@@ -10,22 +10,15 @@ using namespace std;
 #define vd std::vector<double>
 #define vll std::vector<ll>
 
-
-
 int main()
 {
     fastio;
-    int n{0}, m{0}, k{0};
-    cin >> n >> m >> k;
-    vi people(n), apartments(m);
-    int count = 0;
-    for (int i = 0; i < n; i++)
-        cin >> people[i];
-    for (int i = 0; i < m; i++)
-        cin >> apartments[i];
-    
-
-    cout << count << "\n";
-
+    int T{0},k{0},x{0};
+    cin >> T;
+    while (T--)
+    {
+        cin >> k >> x;
+        cout << (k - x) << "\n";
+    }
     return 0;
 }
