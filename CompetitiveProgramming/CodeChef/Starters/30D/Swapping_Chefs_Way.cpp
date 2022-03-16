@@ -11,48 +11,31 @@ using namespace std;
 #define fastio std::ios_base::sync_with_stdio(false), std::cin.tie(NULL), std::cout.tie(NULL)
 #define all(x) x.begin(), x.end()
 
-// ! didn't get accepted :(
+// * upsolved
 
 void solve()
 {
-    ll n{0}, x{0};
-    cin >> n >> x;
-    ll a{0}, b{0}, c{0};
-    if (x % 3 == 0)
+    ll i{0}, j{0}, k{0}, m{0}, n{0}, x{0}, y{0}, z{0};
+    string s, b;
+    cin >> n >> s;
+    b = s;
+    sort(all(s));
+    for (int i = 0; i < n; i++)
     {
-        a = x / 3;
-        b = 0;
-        c = n - a - b;
+        if(b[i] != s[i])
+            swap(s[i], s[n - i - 1]);
     }
-    else if ((x + 1) % 3 == 0)
-    {
-        a = (x + 1) / 3;
-        b = 1;
-        c = n - a - b;
-    }
+    if(b == s)
+        cout << "YES\n";
     else
-    {
-        a = (x + 2) / 3;
-        b = 2;
-        c = n - a - b;
-    }
-
-    if (a + b > n)
-    {
         cout << "NO\n";
-    }
-    else
-    {
-        cout << "YES\n"
-             << a << " " << b << " " << c << "\n";
-    }
 }
-
 int main()
 {
     fastio;
     int T{0};
     cin >> T;
+    // cin >> n;
     while (T--)
     {
         solve();
