@@ -13,23 +13,22 @@ using namespace std;
 
 void solve()
 {
-    ll i{0}, j{0}, k{0}, m{0}, n{0}, x{0}, y{0}, z{0};
-    cin >> n;
-    for (i = 1; i < n; i <<= 1)
-    {
-        k += ((int)log2(i) + 1);
-    }
-    cout << k << "\n";
+    ll a{0}, b{0}, c{0}, m{0}, n{0}, x{0}, y{0}, z{0};
+    cin >> a >> b >> c >> x;
+    if(x != a && x != b && x != c)
+        cout << "No\n";
+    else
+        cout << "Yes\n";
 }
 int main()
 {
     fastio;
-    int T{0};
-    cin >> T;
-    // cin >> n;
-    while (T--)
-    {
-        solve();
-    }
+    // int T{0};
+    // cin >> T;
+    // // cin >> n;
+    // while (T--)
+    // {
+    solve();
+
     return 0;
 }
