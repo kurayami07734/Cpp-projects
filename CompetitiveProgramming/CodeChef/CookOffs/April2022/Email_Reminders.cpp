@@ -13,19 +13,19 @@ using namespace std;
 
 void solve()
 {
-    ll i{0}, s{0}, k{0}, m{0}, n{0}, x{0}, y{0}, z{0};
-    cin >> s;
-    cout << -1 * (s + 1) << "\n";
+    ll i{0}, j{0}, k{0}, u{0}, n{0}, x{0}, y{0}, z{0};
+    cin >> n >> u;
+    cout << (n - u) << "\n";
 }
 int main()
 {
     fastio;
-    int T{0};
-    cin >> T;
+    // int T{0};
+    // cin >> T;
     // cin >> n;
-    while (T--)
-    {
+    // while (T--)
+    // {
         solve();
-    }
+    // }
     return 0;
 }

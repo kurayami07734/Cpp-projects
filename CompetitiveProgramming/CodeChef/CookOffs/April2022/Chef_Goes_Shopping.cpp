@@ -13,9 +13,19 @@ using namespace std;
 
 void solve()
 {
-    ll i{0}, s{0}, k{0}, m{0}, n{0}, x{0}, y{0}, z{0};
-    cin >> s;
-    cout << -1 * (s + 1) << "\n";
+    ll i{0}, j{0}, k{0}, m{0}, n{0}, x{0}, y{0}, z{0};
+    cin >> n;
+    vll left(n), right(n);
+    for (int i = 0; i < n; i++)
+        cin >> left[i];
+    for (int i = 0; i < n; i++)
+        cin >> right[i];
+    ll cost = 0;
+    for (int i = 0; i < n - 1; i++)
+    {
+        cost += min(right[i], left[i + 1]);
+    }
+    cout << cost << "\n";
 }
 int main()
 {

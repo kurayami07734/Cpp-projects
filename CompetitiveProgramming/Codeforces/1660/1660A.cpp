@@ -13,9 +13,12 @@ using namespace std;
 
 void solve()
 {
-    ll i{0}, s{0}, k{0}, m{0}, n{0}, x{0}, y{0}, z{0};
-    cin >> s;
-    cout << -1 * (s + 1) << "\n";
+    ll a{0}, b{0}, k{0}, m{0}, n{0}, x{0}, y{0}, z{0};
+    cin >> a >> b;
+    if (a == 0)
+        cout << "1\n";
+    else
+        cout << (a + 2 * b + 1) << "\n";
 }
 int main()
 {

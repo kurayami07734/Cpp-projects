@@ -25,41 +25,58 @@ int time_taken(vi &h)
 }
 using namespace std;
 using ll = long long;
-
+using vll = vector<ll>;
+ll vmin(vll &v)
+{
+    ll worst = v[0];
+    for (auto num : v)
+        worst = min(worst, num);
+    return worst;
+}
+ll maxOf3(ll a, ll b, ll c)
+{
+    return max(max(a, b), max(a, c));
+}
+void print(vll &v)
+{
+    for (auto num : v)
+        cout << num << " ";
+    cout << "\n";
+}
 void solve()
 {
-    ll i{0}, j{0}, k{0}, m{3}, n{2}, x1{1}, y1{1}, z{0};
-    ll x2{1}, y2{2};
-    // cin >> n >> m;
-    ll matrix[n + 1][m + 1];
-    // cin >> x1 >> y1 >> x2 >> y2;
-    matrix[x1][y1] = 1;
-    matrix[x2][y2] = 2;
-    bool chessLike = ((x1 + y1) % 2 != (x2 + y2) % 2);
-    for (int i = 1; i <= n; i++)
+    ll i{0}, j{0}, k{2}, m{0}, n{5}, x{0}, y{0}, z{0};
+    // cin >> n >> k;
+    vll v = {4, 3, 4, 3, 5};
+    // for (int i = 0; i < n; i++)
+    //     cin >> v[i];
+    for (int i = 0; i < n; i++)
     {
-        for (int j = 1; j <= m; j++)
+        if (k >= 0)
         {
-            if (((i == x1) && (j == y1)) or ((i == x2) && (j == y2)))
-                continue;
-            if ((i + j) % 2 == (x1 + y1) % 2)
+            if (i == 0)
             {
-                matrix[i][j] = 1;
+                if (v[1] == max(v[0], v[1]))
+                    k++;
+                v[1] = max(v[0], v[1]);
+            }
+            else if (i == n - 1)
+            {
+                if (v[n - 1] == max(v[n - 1], v[n - 2]))
+                    k++;
+                v[n - 1] = max(v[n - 1], v[n - 2]);
             }
             else
             {
-                matrix[i][j] = (chessLike ? 2 : 3);
+                if (v[i] == maxOf3(v[i], v[i - 1], v[i + 1]))
+                    k++;
+                v[i] = maxOf3(v[i], v[i - 1], v[i + 1]);
             }
+            k--;
         }
+        print(v);
     }
-    for (int i = 1; i <= n; i++)
-    {
-        for (int j = 1; j <= m; j++)
-        {
-            cout << matrix[i][j] << " ";
-        }
-        cout << "\n";
-    }
+    cout << vmin(v) << "\n";
 }
 
 int main()

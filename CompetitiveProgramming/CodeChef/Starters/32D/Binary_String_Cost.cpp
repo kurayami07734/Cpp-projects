@@ -13,9 +13,22 @@ using namespace std;
 
 void solve()
 {
-    ll i{0}, s{0}, k{0}, m{0}, n{0}, x{0}, y{0}, z{0};
+    ll i{0}, j{0}, k{0}, m{0}, n{0}, x{0}, y{0}, z{0};
+    cin >> n >> x >> y;
+    string s;
     cin >> s;
-    cout << -1 * (s + 1) << "\n";
+    int ones{0}, zeroes{0};
+    for(char c : s)
+    {
+        if(c == '1')
+            ones++;
+        else if (c == '0')
+            zeroes++;
+    }
+    if(ones > 0 && zeroes > 0)
+        cout << min(x, y) << "\n";
+    else
+        cout << "0\n";
 }
 int main()
 {

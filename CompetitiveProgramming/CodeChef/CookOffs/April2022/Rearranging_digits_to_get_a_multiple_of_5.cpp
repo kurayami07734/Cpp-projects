@@ -13,9 +13,22 @@ using namespace std;
 
 void solve()
 {
-    ll i{0}, s{0}, k{0}, m{0}, n{0}, x{0}, y{0}, z{0};
-    cin >> s;
-    cout << -1 * (s + 1) << "\n";
+    ll d{0}, j{0}, k{0}, m{0}, x{0}, y{0}, z{0};
+    cin >> d;
+    string n;
+    cin >> n;
+    ll zeroes{0}, fives{0};
+    for (char c : n)
+    {
+        if (c == '0')
+            zeroes++;
+        else if (c == '5')
+            fives++;
+    }
+    if (zeroes >= 1 or fives >= 1)
+        cout << "Yes\n";
+    else
+        cout << "No\n";
 }
 int main()
 {
