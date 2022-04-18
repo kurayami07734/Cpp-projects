@@ -23,7 +23,7 @@ bool isNonAdjacent(string &s)
 {
     for (int i = 1; i < s.size(); i++)
     {
-        if (s[i] == 1 && s[i - 1] == 1)
+        if (s[i] == '1' && s[i - 1] == '1')
             return false;
     }
     return true;
@@ -35,11 +35,13 @@ void solve()
     string s;
     vi v;
     cin >> n >> s;
-    while(!isZero(s))
-    {
-        for (int i = 1; i < s.size(); i+=2)
-         }
-    }
+    if (isZero(s))
+        k = 0;
+    else if (isNonAdjacent(s))
+        k = 1;
+    else
+        k = 2;
+    cout << k << "\n";
 }
 int main()
 {

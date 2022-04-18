@@ -10,27 +10,19 @@ using namespace std;
 
 #define fastio std::ios_base::sync_with_stdio(false), std::cin.tie(NULL), std::cout.tie(NULL)
 #define all(x) x.begin(), x.end()
+
 void solve()
 {
-    ll i{0}, j{0}, k{0}, m{0}, n{0}, x{0}, y{0}, z{0};
+    ll i{0}, j{0}, b{1}, m{0}, n{0}, x{0}, y{0}, z{0};
     cin >> n;
-    vll v(n);
-    for (int i = 0; i < n; i++)
-        cin >> v[i];
-    ll zeroes{0}, ones{0};
-    for (int num : v)
+    for (int i = 2; i <= n; i++)
     {
-        if (num % 2 == 0)
-            zeroes++;
+        if (i % 2 == 0)
+            b ^= i;
         else
-            ones++;
+            b &= i;
     }
-    if (zeroes == n || ones == n)
-        cout << "0\n";
-    else if (ones % 2 == 1)
-        cout << zeroes << "\n";
-    else
-        cout << min(zeroes, ones / 2) << "\n";
+    cout << b << "\n";
 }
 int main()
 {
