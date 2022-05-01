@@ -37,6 +37,25 @@ void MaxBinaryHeap::insert(std::vector<int> &vec)
 
 int MaxBinaryHeap::extract_max()
 {
+    if(v.size() == 1)
+    {
+        return v.front();
+    }
+    if (v.size() == 2)
+    {
+        int max = 0;
+        if (v[0] > v[1])
+        {
+            max = v[0];
+            v.erase(v.begin());
+        }
+        else
+        {
+            max = v[1];
+            v.erase(v.begin() + 1);
+        }
+        return max;
+    }
     int max = v.at(0);
     v.at(0) = v.at(v.size() - 1);
     int parent = 0;
