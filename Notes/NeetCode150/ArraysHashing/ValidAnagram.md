@@ -25,7 +25,7 @@
 
 #### Naive
 
-Use a map and count occurances of each letter in both strings and compare both the maps
+Use a map and count occurrences of each letter in both strings and compare both the maps
 
 ```c++
 class Solution {
