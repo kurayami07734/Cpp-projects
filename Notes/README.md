@@ -1,6 +1,13 @@
 # Notes
 
-<details open> <summary>Algorithms </summary>
+<details open> <summary>NeetCode 150</summary>
+
+1. [Arrays & Hashing (9)](NeetCode150/ArraysHashing/README.md)
+2.
+
+</details>
+
+<details> <summary>Algorithms </summary>
 
 1. [Searching Algorithms](Algorithms/SearchingAlgorithms.md)
 2. [Bubble, Selection, Insertion sort](Algorithms/ElementarySorts.md)
@@ -11,7 +18,7 @@
 
   </details>
 
-<details open> <summary> Data structures (!! left to do) </summary>
+<details> <summary> Data structures (!! left to do) </summary>
 
 1. [Linked lists, stacks and queues](DataStructures/LinearDS.md)
 2. [Binary Search Tree](DataStructures/BinarySearchTree.md)
