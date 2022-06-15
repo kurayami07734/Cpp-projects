@@ -36,18 +36,21 @@ So, in total $`O(n)`$ auxiliary space is required
 ```c++
 class Solution {
 public:
-    vector<vector<string>> groupAnagrams(vector<string>& strs) {
-        unordered_map<string, vector<string>> m;
-        vector<vector<string>> ans;
-        for(auto s : strs)
+   vector<int> topKFrequent(vector<int>& nums, int k) {
+        unordered_map<int, int> m;
+        for(int num : nums)
+            m[num]++;
+        priority_queue<pair<int,int>> pq;
+        for(auto pair : m)
+            pq.push({pair.second, pair.first});
+        vector<int> res;
+        while(!pq.empty() && k>0)
         {
-            string t = s;
-            sort(s.begin(), s.end());
-            m[s].push_back(t);
+            res.push_back(pq.top().second);
+            pq.pop();
+            k--;
         }
-        for(auto i : m)
-            ans.push_back(i.second);
-        return ans;
+        return res;        
     }
 };
 ```
@@ -77,5 +80,29 @@ $`O(n)`$ for the hash table
 $`O(n)`$ for the vector
 
 So, in total $`O(n)`$ auxiliary space is required
+
+```c++
+class Solution {
+public:
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        unordered_map<int, int> m;
+        for(int num : nums)
+            m[num]++;
+        vector<vector<int>> freq(nums.size()+1);
+        vector<int> res;
+        for(auto pair : m)
+            freq[pair.second].push_back(pair.first);
+        for(int i = nums.size(); i >= 0; i--)
+        {
+            if(freq[i].size() != 0 && k > 0)
+            {
+                res.insert(res.end(), freq[i].begin(), freq[i].end());
+                k-= freq[i].size();
+            }
+        }
+        return res;        
+    }
+};
+```
 
 </details>
