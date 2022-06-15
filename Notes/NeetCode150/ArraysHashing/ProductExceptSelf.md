@@ -15,6 +15,7 @@ We need to not use division and not use auxiliary space to fulfil the requiremen
 
 Imagine we use 2 extra vectors prefix and postfix
 where each element contains the product of all the elements before and after the current element
+
 then the output will be the product of the prefix and postfix 
 
 Example, input : [1,2,3,4]
