@@ -17,7 +17,7 @@ Algorithm
 
 Time complexity
 
-$`O(m.nlogn)`$ n is average length of strings, m is the number of given strings
+$`O(mn\log(n))`$ n is average length of strings, m is the number of given strings
 
 Space complexity
 
