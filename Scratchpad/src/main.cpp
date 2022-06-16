@@ -51,11 +51,44 @@ vector<int> topKFrequent(vector<int> &nums, int k)
     }
     return res;
 }
+
+string encode(vector<string> &strs) {
+        // write your code here
+        string res;
+        for(auto str : strs)
+            res += to_string(str.size()) + "#" + str;
+        return res;
+    }
+
+    /*
+     * @param str: A string
+     * @return: dcodes a single string to a list of strings
+     */
+    vector<string> decode(string &str) {
+        // write your code here
+        vector<string> decoded;
+        int  i = 0;
+        while(i < str.size())
+        {
+           int j = i;
+            while(str[j] != '#')
+            {
+                j++;
+            }
+            int len = stoi(str.substr(i,j-i));
+            // cout << str.substr(j + 1, j + len-1) << "\n";
+            decoded.push_back(str.substr(j+1, len));
+            i = j + len + 1;
+        }
+        return decoded;
+    }
 int main()
 {
-    vector<int> ip = {4, 1, -1, 2, -1, 2, 3};
-    vector<int> op = topKFrequent(ip, 2);
-    for(auto i : op)
+    vector<string> strs = {"Aditya","Simps","for","##_@*/!"};
+    string cipher = encode(strs);
+    vector<string> op = decode(cipher);
+    cout << cipher << "\n";
+    for (auto i : op)
         cout << i << " ";
     cout << "\n";
     return 0;
