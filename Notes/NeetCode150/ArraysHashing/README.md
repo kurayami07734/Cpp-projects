@@ -8,3 +8,4 @@
 6. [Product of array except self](ProductExceptSelf.md)
 7. [Valid Sudoku](ValidSudoku.md)
 8. [Encode and Decode strings](EncodeDecode.md)
+9. [Longest Consecutive sequence](LongestConsecutiveSequence.md)
