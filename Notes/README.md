@@ -3,7 +3,9 @@
 <details open> <summary>NeetCode 150</summary>
 
 1. [Arrays & Hashing (9)](NeetCode150/ArraysHashing/README.md)
-2. [Bit Manipulation (7)](NeetCode150/BitManipulation/README.md)
+2. [Two Pointers (5)](NeetCode150/TwoPointers/README.md)
+3. [Stack (7)](NeetCode150/Stack/README.md)
+4. [Bit Manipulation (7)](NeetCode150/BitManipulation/README.md)
 
 </details>
 

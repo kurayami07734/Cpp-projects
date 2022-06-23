@@ -100,11 +100,34 @@ bool isPalindrome(string s)
             return false;
     return true;
 }
+bool closer(char c1, char c2)
+{
+    if (c1 == '(' && c2 == ')')
+        return true;
+    if (c1 == '{' && c2 == '}')
+        return true;
+    if (c1 == '[' && c2 == ']')
+        return true;
+    return false;
+}
+#include <stack>
+bool isValid(string s)
+{
+    stack<char> st;
+    for (int i = 1; i < s.size(); i++)
+    {
+        if(st.empty())
+            st.push(s[i]);
+        if (!st.empty() && !closer(st.top(), s[i]))
+            st.push(s[i]);
+        else if(!st.empty())
+            st.pop();
+    }
+    return st.empty();
+}
 int main()
 {
-    vector<string> strs = {"Aditya", "Simps", "for", "##_@*/!"};
-    string cipher = encode(strs);
-    vector<string> op = decode(cipher);
-    cout << boolalpha << isPalindrome(string("a.b,.")) << "\n";
+    string s = "(){}}{";
+    cout << boolalpha << isValid(s) << "\n";
     return 0;
 }
