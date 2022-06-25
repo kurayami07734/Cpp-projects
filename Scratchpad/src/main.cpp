@@ -116,18 +116,38 @@ bool isValid(string s)
     stack<char> st;
     for (int i = 1; i < s.size(); i++)
     {
-        if(st.empty())
+        if (st.empty())
             st.push(s[i]);
         if (!st.empty() && !closer(st.top(), s[i]))
             st.push(s[i]);
-        else if(!st.empty())
+        else if (!st.empty())
             st.pop();
     }
     return st.empty();
 }
+int trap(vector<int> &height)
+{
+    int water{0};
+    int i = 1;
+    while (i < height.size())
+    {
+        if (height[i - 1] > height[i])
+        {
+            int j = i;
+            while (height[j] < height[i - 1])
+            {
+                water += (height[i - 1] - height[j]);
+                j++;
+            }
+            i = j;
+        }
+        i++;
+    }
+    return water;
+}
 int main()
 {
-    string s = "(){}}{";
-    cout << boolalpha << isValid(s) << "\n";
+    vector<int> v = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+    cout << trap(v) << "\n";
     return 0;
 }
