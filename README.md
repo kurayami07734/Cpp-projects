@@ -28,7 +28,7 @@
 
 </details>
 
-#### [Notes](Notes/README.md)
+<!-- #### [Notes](Notes/README.md)
 
 <details>
    <summary> Competitive Programming </summary>
@@ -43,4 +43,4 @@
 
 _Note : above folders aren't comprehensive_
 
-</details>
+</details> -->
