@@ -4,8 +4,7 @@ using namespace std;
 
 int main()
 {
-	Graph g;
-	g.setNumOfNodes(4);
+	Graph g(4);
 	g.addEdge(0, 2);
 	g.addEdge(0, 3);
 	g.addEdge(0, 1);
@@ -17,5 +16,6 @@ int main()
 	// 		cout << edges << " ";
 	// 	cout << "\n";
 	// }
-	g.DFS(1);
+	g.DFS(3);
+	cout << endl;
 }

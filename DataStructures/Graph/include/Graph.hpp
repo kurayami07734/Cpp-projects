@@ -2,6 +2,7 @@
 #include <unordered_map>
 #include <vector>
 #include <list>
+#include <queue>
 #include <iostream>
 class Graph
 {
@@ -10,11 +11,11 @@ public:
     std::unordered_map<int, std::list<int>> adjList;
     std::vector<bool> visited;
 
-    void setNumOfNodes(int n)
+    Graph(int nodes)
     {
-        visited.resize(n);
+        visited.resize(nodes);
+        visited.assign(nodes, false);
     }
-
     void addEdge(int u, int v)
     {
         adjList[v].push_back(u);
@@ -29,6 +30,26 @@ public:
             if (!visited[*it])
                 DFS(*it);
     }
+
+    void BFS(int source)
+    {
+        std::list<int> q;
+        q.push_back(source);
+        visited[source] = true;
+        while(!q.empty())
+        {
+            std::cout << q.front() << " ";
+            for(auto neighbor : adjList[q.front()])
+            {
+                if(!visited[neighbor])
+                {
+                    visited[neighbor] = true;
+                    q.push_back(neighbor);
+                }
+            }
+            q.pop_front();
+        }
+        }
 
     Graph() = default;
     ~Graph() = default;
