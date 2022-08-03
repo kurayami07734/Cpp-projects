@@ -5,15 +5,17 @@ using namespace std;
 int main()
 {
 	Graph g;
-	g.addEdge(1, 2);
-	g.addEdge(1, 3);
-	g.addEdge(1, 4);
-	g.addEdge(2, 4);
-	for(auto node : g.adjList)
-	{
-		cout << node.first << ": ";
-		for(auto edges : node.second)
-			cout << edges << " ";
-		cout << "\n";
-	}
+	g.setNumOfNodes(4);
+	g.addEdge(0, 2);
+	g.addEdge(0, 3);
+	g.addEdge(0, 1);
+	g.addEdge(2, 3);
+	// for(auto node : g.adjList)
+	// {
+	// 	cout << node.first << ": ";
+	// 	for(auto edges : node.second)
+	// 		cout << edges << " ";
+	// 	cout << "\n";
+	// }
+	g.DFS(1);
 }
