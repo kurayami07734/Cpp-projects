@@ -1,9 +1,9 @@
 #include <iostream>
+
 #include "../include/Queue.hpp"
 
-int main()
-{
-    int a[] = {1,2,3,4,5};
+int main() {
+    int a[] = {1, 2, 3, 4, 5};
     Queue::Queue<int> q(a, 5);
     std::cout << q;
     q.enqueue(10);

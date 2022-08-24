@@ -2,29 +2,23 @@
 #define BST_HPP
 #include <iostream>
 #include <vector>
-struct BSTNode
-{
-public:
+struct BSTNode {
+   public:
     int data;
     BSTNode *left, *right;
-    BSTNode(int value, BSTNode *left = nullptr, BSTNode *right = nullptr)
-    {
+    BSTNode(int value, BSTNode *left = nullptr, BSTNode *right = nullptr) {
         this->left = left;
         this->right = right;
         data = value;
     }
 };
 
-class BinarySearchTree
-{
-private:
+class BinarySearchTree {
+   private:
     BSTNode *root;
 
-public:
-    BinarySearchTree()
-        : root(nullptr)
-    {
-    }
+   public:
+    BinarySearchTree() : root(nullptr) {}
     void insert(int value);
     void insert(std::vector<int> &v);
     void display_BFS();
@@ -32,9 +26,10 @@ public:
     void display_pre_order();
     void display_post_order();
     void display_in_order();
-    BSTNode* find(int key);
+    BSTNode *remove_node(int key);
+    BSTNode *find(int key);
     int max();
     int min();
 };
 
-#endif // BST_HPP
+#endif  // BST_HPP

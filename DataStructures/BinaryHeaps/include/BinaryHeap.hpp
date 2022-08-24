@@ -3,12 +3,11 @@
 #include <iostream>
 #include <vector>
 
-class MaxBinaryHeap
-{
-private:
+class MaxBinaryHeap {
+   private:
     std::vector<int> v;
 
-public:
+   public:
     void insert(int value);
     void insert(std::vector<int> &vec);
     void display();
@@ -16,4 +15,4 @@ public:
     MaxBinaryHeap() = default;
 };
 
-#endif // BINARYHEAP_HPP
+#endif  // BINARYHEAP_HPP

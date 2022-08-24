@@ -4,8 +4,7 @@ using ll = long long;
 using vll = vector<long long>;
 #include "../include/Trie.hpp"
 
-int main()
-{
+int main() {
     Trie t;
     t.addWord("app");
     t.addWord("apple");

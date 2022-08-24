@@ -3,9 +3,7 @@
 #include <iostream>
 #include <vector>
 
-class HashTable
-{
-private:
-    
+class HashTable {
+   private:
 };
-#endif // HASH_TABLE_HPP
+#endif  // HASH_TABLE_HPP
