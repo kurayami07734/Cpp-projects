@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 #include "../include/Graph.hpp"
 using namespace std;

@@ -1,13 +1,15 @@
 #include "../include/Graph.hpp"
 
 #include <iostream>
-#include <list>
+#include <queue>
 #include <unordered_map>
 #include <vector>
 
 std::vector<bool> Graph::getVisited() { return visited; }
 
-std::unordered_map<int, std::list<int>> Graph::getAdjList() { return adjList; }
+std::unordered_map<int, std::vector<int>> Graph::getAdjList() {
+    return adjList;
+}
 
 Graph::Graph(std::vector<std::pair<int, int>> edges, int nodes) {
     visited.resize(nodes + 1);
@@ -30,18 +32,18 @@ void Graph::DFS(int source) {
 }
 
 void Graph::BFS(int source) {
-    std::list<int> q;
-    q.push_back(source);
+    std::queue<int> q;
+    q.push(source);
     visited[source] = true;
     while (!q.empty()) {
         std::cout << q.front() << " ";
         for (auto neighbor : adjList[q.front()]) {
             if (!visited[neighbor]) {
                 visited[neighbor] = true;
-                q.push_back(neighbor);
+                q.push(neighbor);
             }
         }
-        q.pop_front();
+        q.pop();
     }
 }
 
