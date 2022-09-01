@@ -4,18 +4,9 @@
 using namespace std;
 
 int main() {
-    Graph g(4);
-    g.addEdge(0, 2);
-    g.addEdge(0, 3);
-    g.addEdge(0, 1);
-    g.addEdge(2, 3);
-    // for(auto node : g.adjList)
-    // {
-    // 	cout << node.first << ": ";
-    // 	for(auto edges : node.second)
-    // 		cout << edges << " ";
-    // 	cout << "\n";
-    // }
-    g.DFS(3);
-    cout << endl;
+    vector<pair<int, int>> edges = {{1, 2},  {2, 4}, {3, 5},  {5, 6}, {5, 10},
+                                    {10, 9}, {9, 8}, {8, 11}, {7, 8}, {6, 7}};
+    Graph g(edges, 11);
+    cout << boolalpha << g.hasCycleBFS() << endl;
+    return 0;
 }

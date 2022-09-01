@@ -4,44 +4,28 @@
 #include <queue>
 #include <unordered_map>
 #include <vector>
+
 class Graph {
+   private:
     // undirected graph
-   public:
     std::unordered_map<int, std::list<int>> adjList;
     std::vector<bool> visited;
 
-    Graph(int nodes) {
-        visited.resize(nodes);
-        visited.assign(nodes, false);
-    }
-    void addEdge(int u, int v) {
-        adjList[v].push_back(u);
-        adjList[u].push_back(v);
-    }
+    bool cycleCheckBFS(int source);
 
-    void DFS(int source) {
-        visited[source] = true;
-        std::cout << source << " ";
-        for (auto it = adjList[source].begin(); it != adjList[source].end(); it++)
-            if (!visited[*it]) DFS(*it);
-    }
-
-    void BFS(int source) {
-        std::list<int> q;
-        q.push_back(source);
-        visited[source] = true;
-        while (!q.empty()) {
-            std::cout << q.front() << " ";
-            for (auto neighbor : adjList[q.front()]) {
-                if (!visited[neighbor]) {
-                    visited[neighbor] = true;
-                    q.push_back(neighbor);
-                }
-            }
-            q.pop_front();
-        }
-    }
-
+   public:
+    // constructors
     Graph() = default;
     ~Graph() = default;
+    Graph(std::vector<std::pair<int, int>> edges, int nodes);
+
+    // getters
+    std::vector<bool> getVisited();
+    std::unordered_map<int, std::list<int>> getAdjList();
+
+    // methods
+    void addEdge(int u, int v);
+    void DFS(int source);  // print to console in BFS manner
+    void BFS(int source);  // print to console in DFS manner
+    bool hasCycleBFS();
 };
