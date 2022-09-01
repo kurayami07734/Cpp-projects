@@ -8,6 +8,9 @@
 3.  [Queue implemented using node pointers](DataStructures/Queue/include/Queue.hpp)
 4.  [Binary search tree](DataStructures/BinarySearchTree/include/BST.hpp)
 5.  [(max) Binary Heap](DataStructures/BinaryHeaps/include/BinaryHeap.hpp)
+6.  [Undirected Graph](DataStructures/Graph/include/Graph.hpp)
+7.  [Priority Queue](DataStructures/PriorityQueue/include/PriorityQueue.hpp)
+8.  [Trie](DataStructures/Trie/include/Trie.hpp)
 
 </details>
 
@@ -27,20 +30,3 @@
 3.  [Class modelling vectors (euclidean)](Misc/Vector/include/vector.hpp)
 
 </details>
-
-<!-- #### [Notes](Notes/README.md)
-
-<details>
-   <summary> Competitive Programming </summary>
-
-1.  [C++ template file](Misc/template.cpp)
-2.  [CodeChef problems](CompetitiveProgramming/CodeChef/README.md)
-3.  [HackerRank problems](CompetitiveProgramming/HackerRank/README.md)
-4.  [AtCoder problems](CompetitiveProgramming/AtCoder/README.md)
-5.  [Codeforces problems](CompetitiveProgramming/Codeforces/README.md)
-6.  [CSES problems](CompetitiveProgramming/CSES/README.md)
-7.  [TCP contests](CompetitiveProgramming/TCP/README.md)
-
-_Note : above folders aren't comprehensive_
-
-</details> -->
