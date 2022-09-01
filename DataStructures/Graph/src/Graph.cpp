@@ -2,18 +2,17 @@
 
 #include <iostream>
 #include <list>
-#include <vector>
 #include <unordered_map>
+#include <vector>
 
 std::vector<bool> Graph::getVisited() { return visited; }
 
 std::unordered_map<int, std::list<int>> Graph::getAdjList() { return adjList; }
 
-
-Graph::Graph(std::vector<std::pair<int,int>> edges, int nodes) {
-    visited.resize(nodes);
-    visited.assign(nodes, false);
-    for(std::pair<int,int> p : edges) {
+Graph::Graph(std::vector<std::pair<int, int>> edges, int nodes) {
+    visited.resize(nodes + 1);
+    visited.assign(nodes + 1, false);
+    for (std::pair<int, int> p : edges) {
         addEdge(p.first, p.second);
     }
 }
@@ -47,31 +46,48 @@ void Graph::BFS(int source) {
 }
 
 bool Graph::cycleCheckBFS(int source) {
-    std::queue<std::pair<int,int>> q;
+    std::queue<std::pair<int, int>> q;
     visited[source] = true;
     q.push({source, -1});
-    while(!q.empty()) {
+    while (!q.empty()) {
         int node = q.front().first;
         int pre = q.front().second;
         q.pop();
-        for(int it : adjList[node])
-        {
-            if(!visited[it]) {
+        for (int it : adjList[node]) {
+            if (!visited[it]) {
                 visited[it] = true;
                 q.push({it, node});
-            }
-            else if(pre != it)
+            } else if (pre != it)
                 return true;
         }
     }
     return false;
 }
 
+bool Graph::cycleCheckDFS(int source, int parent) {
+    visited[source] = true;
+    for (int it : adjList[source]) {
+        if (!visited[it]) {
+            if (cycleCheckDFS(it, source)) return true;
+        } else if (it != parent)
+            return true;
+    }
+    return false;
+}
+
 bool Graph::hasCycleBFS() {
-    for(int i = 0; i <= visited.size(); i++) {
-        if(!visited[i]) {
-            if(cycleCheckBFS(i))
-                return true;
+    for (size_t i = 0; i <= visited.size(); i++) {
+        if (!visited[i]) {
+            if (cycleCheckBFS(i)) return true;
+        }
+    }
+    return false;
+}
+
+bool Graph::hasCycleDFS() {
+    for (size_t i = 0; i <= visited.size(); i++) {
+        if (!visited[i]) {
+            if (cycleCheckDFS(i, -1)) return true;
         }
     }
     return false;

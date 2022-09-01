@@ -12,6 +12,7 @@ class Graph {
     std::vector<bool> visited;
 
     bool cycleCheckBFS(int source);
+    bool cycleCheckDFS(int source, int parent);
 
    public:
     // constructors
@@ -28,4 +29,5 @@ class Graph {
     void DFS(int source);  // print to console in BFS manner
     void BFS(int source);  // print to console in DFS manner
     bool hasCycleBFS();
+    bool hasCycleDFS();
 };
